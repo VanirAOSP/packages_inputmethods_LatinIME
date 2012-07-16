@@ -100,6 +100,7 @@ public final class SettingsValues {
     public final int mSuggestionVisibility;
     private final boolean mVoiceKeyEnabled;
     private final boolean mVoiceKeyOnMain;
+    public final boolean mVolumeCursor;
 
     public SettingsValues(final SharedPreferences prefs, final InputAttributes inputAttributes,
             final Context context) {
@@ -172,6 +173,7 @@ public final class SettingsValues {
         mVoiceKeyOnMain = mVoiceMode != null && mVoiceMode.equals(voiceModeMain);
         mAdditionalSubtypes = AdditionalSubtype.createAdditionalSubtypesArray(
                 getPrefAdditionalSubtypes(prefs, res));
+        mVolumeCursor = prefs.getBoolean(Settings.PREF_VOLUME_CURSOR, true);
         final boolean gestureInputEnabledByBuildConfig = res.getBoolean(
                 R.bool.config_gesture_input_enabled_by_build_config);
         mGestureInputEnabled = gestureInputEnabledByBuildConfig
