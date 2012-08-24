@@ -23,12 +23,32 @@
 #include "hash_map_compat.h"
 #include "jni.h"
 
+#if __cplusplus < 201103L && !defined(__GXX_EXPERIMENTAL_CXX0X__) && !defined(constexpr)
+#define constexpr const
+#endif
+
 namespace latinime {
 
 class Correction;
 
 class ProximityInfo {
  public:
+    static constexpr int NORMALIZED_SQUARED_DISTANCE_SCALING_FACTOR_LOG_2 = 10;
+    static constexpr int NORMALIZED_SQUARED_DISTANCE_SCALING_FACTOR =
+            1 << NORMALIZED_SQUARED_DISTANCE_SCALING_FACTOR_LOG_2;
+
+    // Used as a return value for character comparison
+    typedef enum {
+        // Same char, possibly with different case or accent
+        EQUIVALENT_CHAR,
+        // It is a char located nearby on the keyboard
+        NEAR_PROXIMITY_CHAR,
+        // It is an unrelated char
+        UNRELATED_CHAR,
+        // Additional proximity char which can differ by language.
+        ADDITIONAL_PROXIMITY_CHAR
+    } ProximityType;
+
     ProximityInfo(JNIEnv *env, const jstring localeJStr, const int maxProximityCharsSize,
             const int keyboardWidth, const int keyboardHeight, const int gridWidth,
             const int gridHeight, const int mostCommonKeyWidth, const jintArray proximityChars,
@@ -113,7 +133,10 @@ class ProximityInfo {
 
  private:
     DISALLOW_IMPLICIT_CONSTRUCTORS(ProximityInfo);
-    static const float NOT_A_DISTANCE_FLOAT;
+    // The upper limit of the char code in mCodeToKeyIndex
+    static constexpr int MAX_CHAR_CODE = 127;
+    static constexpr float NOT_A_DISTANCE_FLOAT = -1.0f;
+    static constexpr int NOT_A_CODE = -1;
 
     int getStartIndexFromCoordinates(const int x, const int y) const;
     void initializeG();
