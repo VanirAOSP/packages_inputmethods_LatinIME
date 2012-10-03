@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,40 +17,27 @@
 */
 -->
 
-<merge
-    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
->
-    <include
-        latin:keyboardLayout="@xml/keys_less_greater" />
+<merge xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin" >
+    <include latin:keyboardLayout="@xml/keys_less_greater" />
     <!-- U+2260: "≠" NOT EQUAL TO
          U+2248: "≈" ALMOST EQUAL TO -->
-    <Key
-        latin:keyLabel="="
-        latin:moreKeys="&#x2260;,&#x2248;" />
+    <Key latin:keyLabel="="
+         latin:moreKeys="&#x2260;,&#x2248;" />
     <switch>
-        <case
-            latin:mode="url"
-        >
-            <Key
-                latin:keyLabel="\'" />
+        <case latin:mode="url" >
+            <Key latin:keyLabel="\'" />
         </case>
         <default>
-            <Key
-                latin:keyLabel=":" />
+            <Key latin:keyLabel=":" />
         </default>
     </switch>
-    <Key
-        latin:keyLabel="!text/keylabel_for_symbols_semicolon"
-        latin:moreKeys="!text/more_keys_for_symbols_semicolon" />
-    <Key
-        latin:keyLabel="!text/keylabel_for_comma"
-        latin:moreKeys="!text/more_keys_for_comma" />
-    <Key
-        latin:keyLabel="." />
-    <Key
-        latin:keyLabel="!text/keylabel_for_symbols_exclamation"
-        latin:moreKeys="!text/more_keys_for_symbols_exclamation" />
-    <Key
-        latin:keyLabel="!text/keylabel_for_symbols_question"
-        latin:moreKeys="!text/more_keys_for_symbols_question" />
+    <Key latin:keyLabel="!text/keylabel_for_symbols_semicolon"
+         latin:moreKeys="!text/more_keys_for_symbols_semicolon" />
+    <Key latin:keyLabel="!text/keylabel_for_comma"
+         latin:moreKeys="!text/more_keys_for_comma" />
+    <Key latin:keyLabel="." />
+    <Key latin:keyLabel="!text/keylabel_for_symbols_exclamation"
+         latin:moreKeys="!text/more_keys_for_symbols_exclamation" />
+    <Key latin:keyLabel="!text/keylabel_for_symbols_question"
+         latin:moreKeys="!text/more_keys_for_symbols_question" />
 </merge>

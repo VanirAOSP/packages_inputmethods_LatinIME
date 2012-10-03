@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,31 +18,23 @@
 -->
 
 <merge
-    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
->
+    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin" >
     <switch>
-        <case
-            latin:mode="email|url"
-        >
-            <Key
-                latin:keyLabel="-" />
+        <case latin:mode="email|url" >
+            <Key latin:keyLabel="-" />
         </case>
-        <case
-            latin:languageCode="fa"
-        >
-            <Key
-                latin:keyLabel="!text/keylabel_for_apostrophe"
-                latin:keyHintLabel="!text/keyhintlabel_for_apostrophe"
-                latin:keyLabelFlags="hasPopupHint"
-                latin:moreKeys="!text/more_keys_for_apostrophe"
-                latin:keyStyle="hasShiftedLetterHintStyle" />
+        <case latin:languageCode="fa" >
+            <Key latin:keyLabel="!text/keylabel_for_apostrophe"
+                 latin:keyHintLabel="!text/keyhintlabel_for_apostrophe"
+                 latin:keyLabelFlags="hasPopupHint"
+                 latin:moreKeys="!text/more_keys_for_apostrophe"
+                 latin:keyStyle="hasShiftedLetterHintStyle" />
         </case>
         <default>
-            <Key
-                latin:keyLabel="!text/keylabel_for_apostrophe"
-                latin:keyHintLabel="!text/keyhintlabel_for_apostrophe"
-                latin:moreKeys="!text/more_keys_for_apostrophe"
-                latin:keyStyle="hasShiftedLetterHintStyle" />
+            <Key latin:keyLabel="!text/keylabel_for_apostrophe"
+                 latin:keyHintLabel="!text/keyhintlabel_for_apostrophe"
+                 latin:moreKeys="!text/more_keys_for_apostrophe"
+                 latin:keyStyle="hasShiftedLetterHintStyle" />
         </default>
     </switch>
 </merge>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2011, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,40 +17,23 @@
 */
 -->
 
-<merge
-    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
->
-    <include
-        latin:keyboardLayout="@xml/key_styles_common" />
-    <Row
-        latin:keyWidth="9.0%p"
-    >
-        <include
-            latin:keyboardLayout="@xml/key_apostrophe" />
-        <include
-            latin:keyboardLayout="@xml/key_dash" />
-        <include
-            latin:keyboardLayout="@xml/rowkeys_hebrew1" />
-        <Key
-            latin:keyStyle="deleteKeyStyle"
-            latin:keyWidth="fillRight" />
+<merge xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin" >
+    <include latin:keyboardLayout="@xml/key_styles_common" />
+    <Row latin:keyWidth="9.0%p" >
+        <include latin:keyboardLayout="@xml/key_apostrophe" />
+        <include latin:keyboardLayout="@xml/key_dash" />
+        <include latin:keyboardLayout="@xml/rowkeys_hebrew1" />
+        <Key latin:keyStyle="deleteKeyStyle"
+             latin:keyWidth="fillRight" />
     </Row>
-    <Row
-        latin:keyWidth="9.0%p"
-    >
-        <include
-            latin:keyboardLayout="@xml/rowkeys_hebrew2" />
-        <Key
-            latin:keyStyle="enterKeyStyle"
-            latin:keyWidth="fillRight" />
+    <Row latin:keyWidth="9.0%p" >
+        <include latin:keyboardLayout="@xml/rowkeys_hebrew2" />
+        <Key latin:keyStyle="enterKeyStyle"
+             latin:keyWidth="fillRight" />
     </Row>
-    <Row
-        latin:keyWidth="9.0%p"
-    >
-        <include
-            latin:keyboardLayout="@xml/rowkeys_hebrew3"
-            latin:keyXPos="10.0%p" />
+    <Row latin:keyWidth="9.0%p" >
+        <include latin:keyboardLayout="@xml/rowkeys_hebrew3"
+                 latin:keyXPos="10.0%p" />
     </Row>
-    <include
-        latin:keyboardLayout="@xml/row_hebrew4" />
+    <include latin:keyboardLayout="@xml/row_hebrew4" />
 </merge>

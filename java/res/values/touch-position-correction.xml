@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2011, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,6 +16,7 @@
 ** limitations under the License.
 */
 -->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!--
         An entry of the touch_position_correction word should be:
@@ -25,17 +25,13 @@
         3. (float) sweet_spot_radius / (key_width^2 + key_height^2)
      -->
 
-    <string-array
-        name="touch_position_correction_data_empty"
-        translatable="false"
-    >
+    <string-array name="touch_position_correction_data_empty"
+                  translatable="false" >
         <!-- empty -->
     </string-array>
 
-    <string-array
-        name="touch_position_correction_data_gingerbread"
-        translatable="false"
-    >
+    <string-array name="touch_position_correction_data_gingerbread"
+                  translatable="false" >
         <!-- First row -->
         <item>0.0091285</item>
         <item>0.1193203</item>
@@ -52,10 +48,8 @@
         <item>0.1570948</item>
     </string-array>
 
-    <string-array
-        name="touch_position_correction_data_ice_cream_sandwich"
-        translatable="false"
-    >
+    <string-array name="touch_position_correction_data_ice_cream_sandwich"
+                  translatable="false" >
         <!-- First row -->
         <item>0.0038756</item>
         <item>-0.0005677</item>

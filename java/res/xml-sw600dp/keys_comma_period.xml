@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,29 +17,21 @@
 */
 -->
 
-<merge
-    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
->
+<merge xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin" >
     <switch>
-        <case
-            latin:mode="email"
-        >
-            <Key
-                latin:keyLabel="," />
-            <Key
-                latin:keyLabel="." />
+        <case latin:mode="email" >
+            <Key latin:keyLabel="," />
+            <Key latin:keyLabel="." />
         </case>
         <default>
-            <Key
-                latin:keyLabel="!text/keylabel_for_tablet_comma"
-                latin:keyHintLabel="!text/keyhintlabel_for_tablet_comma"
-                latin:moreKeys="!text/more_keys_for_tablet_comma"
-                latin:keyStyle="hasShiftedLetterHintStyle" />
-            <Key
-                latin:keyLabel="."
-                latin:keyHintLabel="!text/keyhintlabel_for_tablet_period"
-                latin:moreKeys="!text/more_keys_for_tablet_period"
-                latin:keyStyle="hasShiftedLetterHintStyle" />
+            <Key latin:keyLabel="!text/keylabel_for_tablet_comma"
+                 latin:keyHintLabel="!text/keyhintlabel_for_tablet_comma"
+                 latin:moreKeys="!text/more_keys_for_tablet_comma"
+                 latin:keyStyle="hasShiftedLetterHintStyle" />
+            <Key latin:keyLabel="."
+                 latin:keyHintLabel="!text/keyhintlabel_for_tablet_period"
+                 latin:moreKeys="!text/more_keys_for_tablet_period"
+                 latin:keyStyle="hasShiftedLetterHintStyle" />
         </default>
     </switch>
 </merge>

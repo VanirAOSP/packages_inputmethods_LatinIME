@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,32 +17,23 @@
 */
 -->
 
-<merge
-    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
->
+<merge xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin" >
     <switch>
-        <case
-            latin:mode="email|url"
-        >
-            <Key
-                latin:keyLabel="_" />
+        <case latin:mode="email|url" >
+            <Key latin:keyLabel="_" />
         </case>
-        <case
-            latin:languageCode="ar|fa"
-        >
-            <Key
-                latin:keyLabel="."
-                latin:keyHintLabel="!text/keyhintlabel_for_arabic_diacritics"
-                latin:keyLabelFlags="hasPopupHint"
-                latin:moreKeys="!text/more_keys_for_arabic_diacritics"
-                latin:keyStyle="hasShiftedLetterHintStyle" />
+        <case latin:languageCode="ar|fa" >
+            <Key latin:keyLabel="."
+                 latin:keyHintLabel="!text/keyhintlabel_for_arabic_diacritics"
+                 latin:keyLabelFlags="hasPopupHint"
+                 latin:moreKeys="!text/more_keys_for_arabic_diacritics"
+                 latin:keyStyle="hasShiftedLetterHintStyle" />
         </case>
         <default>
-            <Key
-                latin:keyLabel="-"
-                latin:keyHintLabel="_"
-                latin:moreKeys="_"
-                latin:keyStyle="hasShiftedLetterHintStyle" />
+            <Key latin:keyLabel="-"
+                 latin:keyHintLabel="_"
+                 latin:moreKeys="_"
+                 latin:keyStyle="hasShiftedLetterHintStyle" />
         </default>
     </switch>
 </merge>

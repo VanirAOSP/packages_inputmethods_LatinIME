@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,29 +17,20 @@
 */
 -->
 
-<merge
-    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
->
-    <Row
-        latin:keyWidth="7.0%p"
-    >
+<merge xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin" >
+    <Row latin:keyWidth="7.0%p" >
         <switch>
-            <case
-                latin:languageSwitchKeyEnabled="true"
-            >
-                <Key
-                    latin:keyStyle="languageSwitchKeyStyle"
-                    latin:keyWidth="9.0%p"
-                    latin:backgroundType="functional" />
+            <case latin:languageSwitchKeyEnabled="true" >
+                <Key latin:keyStyle="languageSwitchKeyStyle"
+                     latin:keyWidth="9.0%p"
+                     latin:backgroundType="functional" />
             </case>
         </switch>
-        <Key
-            latin:keyStyle="spaceKeyStyle"
-            latin:keyXPos="25.5%p"
-            latin:keyWidth="49.0%p" />
-         <include
-            latin:keyXPos="-9.0%p"
-            latin:keyWidth="fillRight"
-            latin:keyboardLayout="@xml/key_shortcut" />
+        <Key latin:keyStyle="spaceKeyStyle"
+             latin:keyXPos="25.5%p"
+             latin:keyWidth="49.0%p" />
+         <include latin:keyXPos="-9.0%p"
+                  latin:keyWidth="fillRight"
+                  latin:keyboardLayout="@xml/key_shortcut" />
     </Row>
 </merge>

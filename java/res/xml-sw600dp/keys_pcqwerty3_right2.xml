@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,16 +17,11 @@
 */
 -->
 
-<merge
-    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
->
+<merge xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin" >
     <switch>
-        <case
-            latin:keyboardLayoutSetElement="symbols|symbolsShifted"
-        >
-            <Key
-                latin:keyLabel=";"
-                latin:moreKeys=":" />
+        <case latin:keyboardLayoutSetElement="symbols|symbolsShifted" >
+            <Key latin:keyLabel=";"
+                 latin:moreKeys=":" />
             <!-- U+2018: "‘" LEFT SINGLE QUOTATION MARK
                  U+2019: "’" RIGHT SINGLE QUOTATION MARK
                  U+201A: "‚" SINGLE LOW-9 QUOTATION MARK
@@ -38,16 +32,14 @@
                  U+201F: "‟" DOUBLE HIGH-REVERSED-9 QUOTATION MARK -->
             <!-- TODO: Neither DroidSans nor Roboto have the glyph for U+201F DOUBLE HIGH-REVERSED-9 QUOTATION MARK.
                  moreKeys="!fixedColumnOrder!4,&#x201C;,&#x201D;,&#x201E;,&#x201F;,&#x2018;,&#x2019;,&#x201A;,&#x201B;" -->
-            <Key
-                latin:keyLabel="\'"
-                latin:moreKeys="!fixedColumnOrder!4,&#x201C;,&#x201D;,&#x2018;,&#x2019;,&#x201A;,&#x201B;,&quot;" />
+            <Key latin:keyLabel="\'"
+                 latin:moreKeys="!fixedColumnOrder!4,&#x201C;,&#x201D;,&#x2018;,&#x2019;,&#x201A;,&#x201B;,&quot;" />
         </case>
         <default>
-            <Key
-                latin:keyLabel=";"
-                latin:keyHintLabel=":"
-                latin:moreKeys=":"
-                latin:keyStyle="hasShiftedLetterHintStyle" />
+            <Key latin:keyLabel=";"
+                 latin:keyHintLabel=":"
+                 latin:moreKeys=":"
+                 latin:keyStyle="hasShiftedLetterHintStyle" />
             <!-- U+2018: "‘" LEFT SINGLE QUOTATION MARK
                  U+2019: "’" RIGHT SINGLE QUOTATION MARK
                  U+201A: "‚" SINGLE LOW-9 QUOTATION MARK
@@ -58,11 +50,10 @@
                  U+201F: "‟" DOUBLE HIGH-REVERSED-9 QUOTATION MARK -->
             <!-- TODO: Neither DroidSans nor Roboto have the glyph for U+201F DOUBLE HIGH-REVERSED-9 QUOTATION MARK.
                  moreKeys="!fixedColumnOrder!4,&#x201C;,&#x201D;,&#x201E;,&#x201F;,&#x2018;,&#x2019;,&#x201A;,&#x201B;" -->
-            <Key
-                latin:keyLabel="\'"
-                latin:keyHintLabel="&quot;"
-                latin:moreKeys="!fixedColumnOrder!4,&#x201C;,&#x201D;,&#x2018;,&#x2019;,&#x201A;,&#x201B;,&quot;"
-                latin:keyStyle="hasShiftedLetterHintStyle" />
+            <Key latin:keyLabel="\'"
+                 latin:keyHintLabel="&quot;"
+                 latin:moreKeys="!fixedColumnOrder!4,&#x201C;,&#x201D;,&#x2018;,&#x2019;,&#x201A;,&#x201B;,&quot;"
+                 latin:keyStyle="hasShiftedLetterHintStyle" />
         </default>
     </switch>
 </merge>

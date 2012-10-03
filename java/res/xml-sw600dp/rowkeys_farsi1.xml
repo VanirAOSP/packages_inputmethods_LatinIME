@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,48 +17,34 @@
 */
 -->
 
-<merge
-    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
->
+<merge xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin" >
     <!-- U+0636: "ض" ARABIC LETTER DAD -->
-    <Key
-        latin:keyLabel="&#x0636;" />
+    <Key latin:keyLabel="&#x0636;" />
     <!-- U+0635: "ص" ARABIC LETTER SAD -->
-    <Key
-        latin:keyLabel="&#x0635;" />
+    <Key latin:keyLabel="&#x0635;" />
     <!-- U+062B: "ث" ARABIC LETTER THEH -->
-    <Key
-        latin:keyLabel="&#x062B;" />
+    <Key latin:keyLabel="&#x062B;" />
     <!-- U+0642: "ق" ARABIC LETTER QAF -->
-    <Key
-        latin:keyLabel="&#x0642;" />
+    <Key latin:keyLabel="&#x0642;" />
     <!-- U+0641: "ف" ARABIC LETTER FEH -->
-    <Key
-        latin:keyLabel="&#x0641;" />
+    <Key latin:keyLabel="&#x0641;" />
     <!-- U+063A: "غ" ARABIC LETTER GHAIN -->
-    <Key
-        latin:keyLabel="&#x063A;" />
+    <Key latin:keyLabel="&#x063A;" />
     <!-- U+0639: "ع" ARABIC LETTER AIN -->
-    <Key
-        latin:keyLabel="&#x0639;" />
+    <Key latin:keyLabel="&#x0639;" />
     <!-- U+0647: "ه" ARABIC LETTER HEH
          U+FEEB: "ﻫ" ARABIC LETTER HEH INITIAL FORM
          U+0647/U+200D: ARABIC LETTER HEH + ZERO WIDTH JOINER
          U+0647/U+0654: ARABIC LETTER HEH + ARABIC HAMZA ABOVE
          U+0629: "ة" ARABIC LETTER TEH MARBUTA -->
-    <Key
-        latin:keyLabel="&#x0647;"
-        latin:moreKeys="&#xFEEB;|&#x0647;&#x200D;,&#x0647;&#x0654;,&#x0629;,%" />
+    <Key latin:keyLabel="&#x0647;"
+         latin:moreKeys="&#xFEEB;|&#x0647;&#x200D;,&#x0647;&#x0654;,&#x0629;,%" />
     <!-- U+062E: "خ" ARABIC LETTER KHAH -->
-    <Key
-        latin:keyLabel="&#x062E;" />
+    <Key latin:keyLabel="&#x062E;" />
     <!-- U+062D: "ح" ARABIC LETTER HAH -->
-    <Key
-        latin:keyLabel="&#x062D;" />
+    <Key latin:keyLabel="&#x062D;" />
     <!-- U+062C: "ج" ARABIC LETTER JEEM -->
-    <Key
-        latin:keyLabel="&#x062C;" />
+    <Key latin:keyLabel="&#x062C;" />
     <!-- U+0686: "چ" ARABIC LETTER TCHEH -->
-    <Key
-        latin:keyLabel="&#x0686;" />
+    <Key latin:keyLabel="&#x0686;" />
 </merge>

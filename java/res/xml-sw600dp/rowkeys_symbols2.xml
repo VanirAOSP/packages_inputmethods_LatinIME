@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,57 +17,41 @@
 */
 -->
 
-<merge
-    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
->
+<merge xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin" >
     <switch>
-        <case
-            latin:languageCode="fa"
-        >
+        <case latin:languageCode="fa" >
             <!-- U+066C: "٬" ARABIC THOUSANDS SEPARATOR -->
-            <Key
-                latin:keyLabel="&#x066C;"
-                latin:keyHintLabel="&amp;"
-                latin:keyLabelFlags="hasPopupHint|hasShiftedLetterHint"
-                latin:moreKeys="&amp;" />
+            <Key latin:keyLabel="&#x066C;"
+                 latin:keyHintLabel="&amp;"
+                 latin:keyLabelFlags="hasPopupHint|hasShiftedLetterHint"
+                 latin:moreKeys="&amp;" />
         </case>
         <default>
-            <Key
-                latin:keyLabel="#" />
+            <Key latin:keyLabel="#" />
         </default>
     </switch>
-    <Key
-        latin:keyStyle="currencyKeyStyle" />
-    <Key
-        latin:keyLabel="!text/keylabel_for_symbols_percent"
-        latin:moreKeys="!text/more_keys_for_symbols_percent" />
+    <Key latin:keyStyle="currencyKeyStyle" />
+    <Key latin:keyLabel="!text/keylabel_for_symbols_percent"
+         latin:moreKeys="!text/more_keys_for_symbols_percent" />
     <switch>
-        <case
-            latin:languageCode="fa"
-        >
+        <case latin:languageCode="fa" >
             <!-- U+066B: "٫" ARABIC DECIMAL SEPARATOR -->
-            <Key
-                latin:keyLabel="&#x066B;"
-                latin:keyHintLabel="#"
-                latin:keyLabelFlags="hasPopupHint|hasShiftedLetterHint"
-                latin:moreKeys="#" />
+            <Key latin:keyLabel="&#x066B;"
+                 latin:keyHintLabel="#"
+                 latin:keyLabelFlags="hasPopupHint|hasShiftedLetterHint"
+                 latin:moreKeys="#" />
         </case>
         <default>
-            <Key
-                latin:keyLabel="&amp;" />
+            <Key latin:keyLabel="&amp;" />
         </default>
     </switch>
-    <Key
-        latin:keyLabel="*"
-        latin:moreKeys="!text/more_keys_for_star" />
+    <Key latin:keyLabel="*"
+         latin:moreKeys="!text/more_keys_for_star" />
     <!-- U+2013: "–" EN DASH
          U+2014: "—" EM DASH -->
-    <Key
-        latin:keyLabel="-"
-        latin:moreKeys="_,&#x2013;,&#x2014;" />
-    <Key
-        latin:keyLabel="+"
-        latin:moreKeys="!text/more_keys_for_plus" />
-    <include
-        latin:keyboardLayout="@xml/keys_parentheses" />
+    <Key latin:keyLabel="-"
+         latin:moreKeys="_,&#x2013;,&#x2014;" />
+    <Key latin:keyLabel="+"
+         latin:moreKeys="!text/more_keys_for_plus" />
+    <include latin:keyboardLayout="@xml/keys_parentheses" />
 </merge>

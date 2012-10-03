@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,45 +17,30 @@
 */
 -->
 
-<merge
-    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
->
+<merge xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin" >
     <switch>
-        <case
-            latin:keyboardLayoutSetElement="symbols"
-            latin:mode="url"
-        >
-            <Key
-                latin:keyLabel=":" />
+        <case latin:keyboardLayoutSetElement="symbols"
+              latin:mode="url" >
+            <Key latin:keyLabel=":" />
         </case>
-        <case
-            latin:keyboardLayoutSetElement="symbols"
-        >
-            <Key
-                latin:keyLabel="\@" />
+        <case latin:keyboardLayoutSetElement="symbols" >
+            <Key latin:keyLabel="\@" />
         </case>
         <!-- keyboardLayoutSetElement != "symbols" -->
-        <case
-            latin:mode="email"
-        >
-            <Key
-                latin:keyLabel="\@" />
+        <case latin:mode="email" >
+            <Key latin:keyLabel="\@" />
         </case>
-        <case
-            latin:mode="url"
-        >
-            <Key
-                latin:keyLabel="/"
-                latin:keyHintLabel=":"
-                latin:moreKeys=":"
-                latin:keyStyle="hasShiftedLetterHintStyle" />
+        <case latin:mode="url" >
+            <Key latin:keyLabel="/"
+                 latin:keyHintLabel=":"
+                 latin:moreKeys=":"
+                 latin:keyStyle="hasShiftedLetterHintStyle" />
         </case>
         <default>
-            <Key
-                latin:keyLabel="/"
-                latin:keyHintLabel="\@"
-                latin:moreKeys="\@"
-                latin:keyStyle="hasShiftedLetterHintStyle" />
+            <Key latin:keyLabel="/"
+                 latin:keyHintLabel="\@"
+                 latin:moreKeys="\@"
+                 latin:keyStyle="hasShiftedLetterHintStyle" />
         </default>
     </switch>
 </merge>

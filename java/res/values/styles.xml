@@ -83,27 +83,22 @@
         <item name="altCodeKeyWhileTypingFadeoutAnimator">@anim/alt_code_key_while_typing_fadeout</item>
         <item name="altCodeKeyWhileTypingFadeinAnimator">@anim/alt_code_key_while_typing_fadein</item>
     </style>
-    <style
-        name="LatinKeyboardView"
-        parent="KeyboardView">
+    <style name="LatinKeyboardView"
+           parent="KeyboardView">
         <item name="autoCorrectionSpacebarLedEnabled">true</item>
         <item name="autoCorrectionSpacebarLedIcon">@drawable/sym_keyboard_space_led</item>
         <item name="spacebarTextRatio">@fraction/spacebar_text_ratio</item>
         <item name="spacebarTextColor">#FFC0C0C0</item>
         <item name="spacebarTextShadowColor">#80000000</item>
     </style>
-    <style
-        name="MoreKeysKeyboard"
-        parent="Keyboard"
-    >
+    <style name="MoreKeysKeyboard"
+           parent="Keyboard" >
         <item name="keyboardTopPadding">0dp</item>
         <item name="keyboardBottomPadding">0dp</item>
         <item name="horizontalGap">0dp</item>
     </style>
-    <style
-        name="MoreKeysKeyboardView"
-        parent="KeyboardView"
-    >
+    <style name="MoreKeysKeyboardView"
+           parent="KeyboardView" >
         <item name="keyBackground">@drawable/btn_keyboard_key_popup</item>
         <item name="verticalCorrection">@dimen/more_keys_keyboard_vertical_correction</item>
     </style>
@@ -113,10 +108,8 @@
     <style name="SuggestionsStripBackgroundStyle">
         <item name="android:background">@drawable/keyboard_suggest_strip</item>
     </style>
-    <style
-        name="SuggestionsViewStyle"
-        parent="SuggestionsStripBackgroundStyle"
-    >
+    <style name="SuggestionsViewStyle"
+           parent="SuggestionsStripBackgroundStyle" >
         <item name="suggestionStripOption">autoCorrectBold|validTypedWordBold</item>
         <item name="colorValidTypedWord">#FFFCAE00</item>
         <item name="colorTypedWord">@android:color/white</item>
@@ -128,10 +121,8 @@
         <item name="maxMoreSuggestionsRow">@integer/max_more_suggestions_row</item>
         <item name="minMoreSuggestionsWidth">@fraction/min_more_suggestions_width</item>
     </style>
-    <style
-        name="MoreSuggestionsViewStyle"
-        parent="MoreKeysKeyboardView"
-    >
+    <style name="MoreSuggestionsViewStyle"
+           parent="MoreKeysKeyboardView" >
     </style>
     <style name="SuggestionBackgroundStyle">
         <item name="android:background">@drawable/btn_suggestion</item>
@@ -140,24 +131,18 @@
         <item name="android:background">@drawable/suggestion_feedback_background</item>
     </style>
     <!-- Theme "Basic high contrast" -->
-    <style
-        name="Keyboard.HighContrast"
-        parent="Keyboard"
-    >
+    <style name="Keyboard.HighContrast"
+           parent="Keyboard" >
         <!-- This should be aligned with KeyboardSwitcher.KEYBOARD_THEMES[] -->
         <item name="themeId">1</item>
     </style>
-    <style
-        name="KeyboardView.HighContrast"
-        parent="KeyboardView"
-    >
+    <style name="KeyboardView.HighContrast"
+           parent="KeyboardView" >
         <item name="android:background">@android:color/black</item>
         <item name="keyBackground">@drawable/btn_keyboard_key3</item>
     </style>
-    <style
-        name="LatinKeyboardView.HighContrast"
-        parent="KeyboardView.HighContrast"
-    >
+    <style name="LatinKeyboardView.HighContrast"
+           parent="KeyboardView.HighContrast" >
         <item name="autoCorrectionSpacebarLedEnabled">true</item>
         <item name="autoCorrectionSpacebarLedIcon">@drawable/sym_keyboard_space_led</item>
         <item name="spacebarTextRatio">@fraction/spacebar_text_ratio</item>
@@ -165,10 +150,8 @@
         <item name="spacebarTextShadowColor">#80000000</item>
     </style>
     <!-- Theme "Stone" -->
-    <style
-        name="Keyboard.Stone"
-        parent="Keyboard"
-    >
+    <style name="Keyboard.Stone"
+           parent="Keyboard" >
         <!-- This should be aligned with KeyboardSwitcher.KEYBOARD_THEMES[] -->
         <item name="themeId">6</item>
         <item name="keyboardTopPadding">@fraction/keyboard_top_padding_stone</item>
@@ -176,10 +159,8 @@
         <item name="horizontalGap">@fraction/key_horizontal_gap_stone</item>
         <item name="verticalGap">@fraction/key_bottom_gap_stone</item>
     </style>
-    <style
-        name="KeyboardView.Stone"
-        parent="KeyboardView"
-    >
+    <style name="KeyboardView.Stone"
+           parent="KeyboardView" >
         <item name="keyBackground">@drawable/btn_keyboard_key_stone</item>
         <item name="keyTextColor">#FF000000</item>
         <item name="keyTextInactivatedColor">#FF808080</item>
@@ -189,50 +170,38 @@
         <item name="keyShiftedLetterHintActivatedColor">#CC000000</item>
         <item name="shadowColor">#FFFFFFFF</item>
     </style>
-    <style
-        name="LatinKeyboardView.Stone"
-        parent="KeyboardView.Stone"
-    >
+    <style name="LatinKeyboardView.Stone"
+           parent="KeyboardView.Stone" >
         <item name="autoCorrectionSpacebarLedEnabled">true</item>
         <item name="autoCorrectionSpacebarLedIcon">@drawable/sym_keyboard_space_led</item>
         <item name="spacebarTextRatio">@fraction/spacebar_text_ratio</item>
         <item name="spacebarTextColor">#FF000000</item>
         <item name="spacebarTextShadowColor">#D0FFFFFF</item>
     </style>
-    <style
-        name="MoreKeysKeyboard.Stone"
-        parent="Keyboard.Stone"
-    >
+    <style name="MoreKeysKeyboard.Stone"
+           parent="Keyboard.Stone" >
         <item name="keyboardTopPadding">0dp</item>
         <item name="keyboardBottomPadding">0dp</item>
         <item name="horizontalGap">0dp</item>
     </style>
-    <style
-        name="MoreKeysKeyboardView.Stone"
-        parent="MoreKeysKeyboardView"
-    >
+    <style name="MoreKeysKeyboardView.Stone"
+           parent="MoreKeysKeyboardView" >
         <item name="keyBackground">@drawable/btn_keyboard_key_stone</item>
         <item name="keyTextColor">#FF000000</item>
         <item name="shadowColor">#FFFFFFFF</item>
     </style>
     <!-- Theme "Stone bold" -->
-    <style
-        name="Keyboard.Stone.Bold"
-        parent="Keyboard.Stone"
-    >
+    <style name="Keyboard.Stone.Bold"
+           parent="Keyboard.Stone" >
         <!-- This should be aligned with KeyboardSwitcher.KEYBOARD_THEMES[] -->
         <item name="themeId">7</item>
     </style>
-    <style
-        name="KeyboardView.Stone.Bold"
-        parent="KeyboardView.Stone"
-    >
+    <style name="KeyboardView.Stone.Bold"
+           parent="KeyboardView.Stone" >
         <item name="keyTextStyle">bold</item>
     </style>
-    <style
-        name="LatinKeyboardView.Stone.Bold"
-        parent="KeyboardView.Stone.Bold"
-    >
+    <style name="LatinKeyboardView.Stone.Bold"
+           parent="KeyboardView.Stone.Bold" >
         <item name="autoCorrectionSpacebarLedEnabled">true</item>
         <item name="autoCorrectionSpacebarLedIcon">@drawable/sym_keyboard_space_led</item>
         <item name="spacebarTextRatio">@fraction/spacebar_text_ratio</item>
@@ -240,53 +209,41 @@
         <item name="spacebarTextShadowColor">#D0FFFFFF</item>
     </style>
     <!-- Theme "Gingerbread" -->
-    <style
-        name="Keyboard.Gingerbread"
-        parent="Keyboard"
-    >
+    <style name="Keyboard.Gingerbread"
+           parent="Keyboard" >
         <!-- This should be aligned with KeyboardSwitcher.KEYBOARD_THEMES[] -->
         <item name="themeId">8</item>
         <item name="touchPositionCorrectionData">@array/touch_position_correction_data_gingerbread</item>
         <item name="horizontalGap">@fraction/key_horizontal_gap_gb</item>
         <item name="verticalGap">@fraction/key_bottom_gap_gb</item>
     </style>
-    <style
-        name="KeyboardView.Gingerbread"
-        parent="KeyboardView"
-    >
+    <style name="KeyboardView.Gingerbread"
+           parent="KeyboardView" >
         <item name="android:background">@drawable/keyboard_dark_background</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_gingerbread</item>
         <item name="keyTextStyle">bold</item>
     </style>
-    <style
-        name="LatinKeyboardView.Gingerbread"
-        parent="KeyboardView.Gingerbread"
-    >
+    <style name="LatinKeyboardView.Gingerbread"
+           parent="KeyboardView.Gingerbread" >
         <item name="autoCorrectionSpacebarLedEnabled">true</item>
         <item name="autoCorrectionSpacebarLedIcon">@drawable/sym_keyboard_space_led</item>
         <item name="spacebarTextRatio">@fraction/spacebar_text_ratio</item>
         <item name="spacebarTextColor">#FFC0C0C0</item>
         <item name="spacebarTextShadowColor">#80000000</item>
     </style>
-    <style
-        name="MoreKeysKeyboard.Gingerbread"
-        parent="Keyboard.Gingerbread"
-    >
+    <style name="MoreKeysKeyboard.Gingerbread"
+           parent="Keyboard.Gingerbread" >
         <item name="keyboardTopPadding">0dp</item>
         <item name="keyboardBottomPadding">0dp</item>
         <item name="horizontalGap">0dp</item>
     </style>
-    <style
-        name="MoreKeysKeyboardView.Gingerbread"
-        parent="MoreKeysKeyboardView"
-    >
+    <style name="MoreKeysKeyboardView.Gingerbread"
+           parent="MoreKeysKeyboardView" >
         <item name="android:background">@null</item>
     </style>
     <!-- Theme "IceCreamSandwich" -->
-    <style
-        name="Keyboard.IceCreamSandwich"
-        parent="Keyboard"
-    >
+    <style name="Keyboard.IceCreamSandwich"
+           parent="Keyboard" >
         <!-- This should be aligned with KeyboardSwitcher.KEYBOARD_THEMES[] -->
         <item name="themeId">5</item>
         <item name="keyboardTopPadding">@fraction/keyboard_top_padding_ics</item>
@@ -295,10 +252,8 @@
         <item name="verticalGap">@fraction/key_bottom_gap_ics</item>
         <item name="touchPositionCorrectionData">@array/touch_position_correction_data_ice_cream_sandwich</item>
     </style>
-    <style
-        name="KeyboardView.IceCreamSandwich"
-        parent="KeyboardView"
-    >
+    <style name="KeyboardView.IceCreamSandwich"
+           parent="KeyboardView" >
         <item name="android:background">@drawable/keyboard_background_holo</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_ics</item>
         <item name="keyTextStyle">bold</item>
@@ -315,28 +270,22 @@
         <item name="shadowColor">@color/shadowColor</item>
         <item name="shadowRadius">0.0</item>
     </style>
-    <style
-        name="LatinKeyboardView.IceCreamSandwich"
-        parent="KeyboardView.IceCreamSandwich"
-    >
+    <style name="LatinKeyboardView.IceCreamSandwich"
+           parent="KeyboardView.IceCreamSandwich" >
         <item name="autoCorrectionSpacebarLedEnabled">false</item>
         <item name="autoCorrectionSpacebarLedIcon">@drawable/sym_keyboard_space_led_holo</item>
         <item name="spacebarTextRatio">@fraction/spacebar_text_ratio</item>
         <item name="spacebarTextColor">#FFC0C0C0</item>
         <item name="spacebarTextShadowColor">#80000000</item>
     </style>
-    <style
-        name="MoreKeysKeyboard.IceCreamSandwich"
-        parent="Keyboard.IceCreamSandwich"
-    >
+    <style name="MoreKeysKeyboard.IceCreamSandwich"
+           parent="Keyboard.IceCreamSandwich" >
         <item name="keyboardTopPadding">0dp</item>
         <item name="keyboardBottomPadding">0dp</item>
         <item name="horizontalGap">0dp</item>
     </style>
-    <style
-        name="MoreKeysKeyboardView.IceCreamSandwich"
-        parent="MoreKeysKeyboardView"
-    >
+    <style name="MoreKeysKeyboardView.IceCreamSandwich"
+           parent="MoreKeysKeyboardView" >
         <item name="android:background">@null</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_popup_ics</item>
         <item name="verticalCorrection">@dimen/more_keys_keyboard_vertical_correction_ics</item>
@@ -347,10 +296,8 @@
     <style name="SuggestionsStripBackgroundStyle.IceCreamSandwich">
         <item name="android:background">@drawable/keyboard_suggest_strip_holo</item>
     </style>
-    <style
-        name="SuggestionsViewStyle.IceCreamSandwich"
-        parent="SuggestionsStripBackgroundStyle.IceCreamSandwich"
-    >
+    <style name="SuggestionsViewStyle.IceCreamSandwich"
+           parent="SuggestionsStripBackgroundStyle.IceCreamSandwich" >
         <item name="suggestionStripOption">autoCorrectBold|validTypedWordBold</item>
         <!-- android:color/holo_blue_light=#FF33B5E5 -->
         <item name="colorValidTypedWord">@color/colorValidTypedWord</item>
@@ -366,18 +313,14 @@
         <item name="maxMoreSuggestionsRow">@integer/max_more_suggestions_row</item>
         <item name="minMoreSuggestionsWidth">@fraction/min_more_suggestions_width</item>
     </style>
-    <style
-        name="MoreSuggestionsViewStyle.IceCreamSandwich"
-        parent="MoreKeysKeyboardView.IceCreamSandwich"
-    >
+    <style name="MoreSuggestionsViewStyle.IceCreamSandwich"
+           parent="MoreKeysKeyboardView.IceCreamSandwich" >
     </style>
     <style name="SuggestionBackgroundStyle.IceCreamSandwich">
         <item name="android:background">@drawable/btn_suggestion_ics</item>
     </style>
-    <style
-        name="SuggestionPreviewBackgroundStyle.IceCreamSandwich"
-        parent="MoreKeysKeyboardPanelStyle.IceCreamSandwich"
-    >
+    <style name="SuggestionPreviewBackgroundStyle.IceCreamSandwich"
+           parent="MoreKeysKeyboardPanelStyle.IceCreamSandwich" >
     </style>
     <style name="MoreKeysKeyboardAnimation">
         <item name="android:windowEnterAnimation">@anim/more_keys_keyboard_fadein</item>

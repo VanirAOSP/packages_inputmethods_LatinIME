@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,46 +17,30 @@
 */
 -->
 
-<merge
-    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
->
+<merge xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin" >
     <switch>
-        <case
-            latin:languageCode="fa"
-            latin:languageSwitchKeyEnabled="true"
-        >
-            <Key
-                latin:keyStyle="languageSwitchKeyStyle" />
-            <Key
-                latin:keyStyle="spaceKeyStyle"
-                latin:keyWidth="27.0%p" />
-            <Key
-                latin:keyStyle="zwnjKeyStyle" />
+        <case latin:languageCode="fa"
+              latin:languageSwitchKeyEnabled="true" >
+            <Key latin:keyStyle="languageSwitchKeyStyle" />
+            <Key latin:keyStyle="spaceKeyStyle"
+                 latin:keyWidth="27.0%p" />
+            <Key latin:keyStyle="zwnjKeyStyle" />
         </case>
-        <case
-            latin:languageCode="fa"
-            latin:languageSwitchKeyEnabled="false"
-        >
-            <Key
-                latin:keyStyle="spaceKeyStyle"
-                latin:keyWidth="36.0%p" />
-            <Key
-                latin:keyStyle="zwnjKeyStyle" />
+        <case latin:languageCode="fa"
+              latin:languageSwitchKeyEnabled="false" >
+            <Key latin:keyStyle="spaceKeyStyle"
+                 latin:keyWidth="36.0%p" />
+            <Key latin:keyStyle="zwnjKeyStyle" />
         </case>
-        <case
-            latin:languageSwitchKeyEnabled="true"
-        >
-            <Key
-                latin:keyStyle="languageSwitchKeyStyle" />
-            <Key
-                latin:keyStyle="spaceKeyStyle"
-                latin:keyWidth="36.0%p" />
+        <case latin:languageSwitchKeyEnabled="true" >
+            <Key latin:keyStyle="languageSwitchKeyStyle" />
+            <Key latin:keyStyle="spaceKeyStyle"
+                 latin:keyWidth="36.0%p" />
         </case>
         <!-- languageSwitchKeyEnabled="false" -->
         <default>
-            <Key
-                latin:keyStyle="spaceKeyStyle"
-                latin:keyWidth="45.0%p" />
+            <Key latin:keyStyle="spaceKeyStyle"
+                 latin:keyWidth="45.0%p" />
         </default>
     </switch>
 </merge>
