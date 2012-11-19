@@ -26,7 +26,6 @@ import com.android.inputmethod.latin.LatinImeLogger;
 import com.android.inputmethod.latin.R;
 import com.android.inputmethod.latin.ResourceUtils;
 import com.android.inputmethod.latin.define.ProductionFlag;
-import com.android.inputmethod.research.ResearchLogger;
 
 public final class SuddenJumpingTouchEventHandler {
     private static final String TAG = SuddenJumpingTouchEventHandler.class.getSimpleName();
@@ -146,7 +145,7 @@ public final class SuddenJumpingTouchEventHandler {
             if (DEBUG_MODE)
                 Log.w(TAG, "onTouchEvent: ignore sudden jump " + me);
             if (ProductionFlag.IS_EXPERIMENTAL) {
-                ResearchLogger.suddenJumpingTouchEventHandler_onTouchEvent(me);
+           //     ResearchLogger.suddenJumpingTouchEventHandler_onTouchEvent(me);
             }
             return true;
         }

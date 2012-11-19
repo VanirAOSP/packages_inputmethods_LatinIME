@@ -66,7 +66,6 @@ import com.android.inputmethod.latin.StaticInnerHandlerWrapper;
 import com.android.inputmethod.latin.SuggestedWords;
 import com.android.inputmethod.latin.Utils;
 import com.android.inputmethod.latin.define.ProductionFlag;
-import com.android.inputmethod.research.ResearchLogger;
 
 import java.util.ArrayList;
 
@@ -671,7 +670,7 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
         mSuggestedWords = suggestedWords;
         mParams.layout(mSuggestedWords, mSuggestionsStrip, this, getWidth());
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.suggestionStripView_setSuggestions(mSuggestedWords);
+       //     ResearchLogger.suggestionStripView_setSuggestions(mSuggestedWords);
         }
     }
 

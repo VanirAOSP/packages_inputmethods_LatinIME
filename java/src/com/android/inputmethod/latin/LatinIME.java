@@ -75,7 +75,6 @@ import com.android.inputmethod.latin.LocaleUtils.RunInLocale;
 import com.android.inputmethod.latin.Utils.Stats;
 import com.android.inputmethod.latin.define.ProductionFlag;
 import com.android.inputmethod.latin.suggestions.SuggestionStripView;
-import com.android.inputmethod.research.ResearchLogger;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -410,7 +409,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         mPrefs = prefs;
         LatinImeLogger.init(this, prefs);
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.getInstance().init(this, prefs);
+         //   ResearchLogger.getInstance().init(this, prefs);
         }
         InputMethodManagerCompatWrapper.init(this);
         SubtypeSwitcher.init(this);
@@ -521,7 +520,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
 
         mIsMainDictionaryAvailable = DictionaryFactory.isDictionaryAvailable(this, subtypeLocale);
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.getInstance().initSuggest(mSuggest);
+     //       ResearchLogger.getInstance().initSuggest(mSuggest);
         }
 
         mUserDictionary = new UserBinaryDictionary(this, localeStr);
@@ -701,7 +700,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
                     + ((editorInfo.inputType & InputType.TYPE_TEXT_FLAG_CAP_WORDS) != 0));
         }
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.latinIME_onStartInputViewInternal(editorInfo, mPrefs);
+        //    ResearchLogger.latinIME_onStartInputViewInternal(editorInfo, mPrefs);
         }
         if (InputAttributes.inPrivateImeOptions(null, NO_MICROPHONE_COMPAT, editorInfo)) {
             Log.w(TAG, "Deprecated private IME option specified: "
@@ -827,8 +826,8 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
     @Override
     public void onWindowHidden() {
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.latinIME_onWindowHidden(mLastSelectionStart, mLastSelectionEnd,
-                    getCurrentInputConnection());
+       //     ResearchLogger.latinIME_onWindowHidden(mLastSelectionStart, mLastSelectionEnd,
+                    getCurrentInputConnection();
         }
         super.onWindowHidden();
         final MainKeyboardView mainKeyboardView = mKeyboardSwitcher.getMainKeyboardView();
@@ -842,7 +841,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
 
         LatinImeLogger.commit();
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.getInstance().latinIME_onFinishInputInternal();
+         //   ResearchLogger.getInstance().latinIME_onFinishInputInternal();
         }
 
         final MainKeyboardView mainKeyboardView = mKeyboardSwitcher.getMainKeyboardView();
@@ -879,16 +878,16 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
                     + ", ce=" + composingSpanEnd);
         }
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            final boolean expectingUpdateSelectionFromLogger =
-                    ResearchLogger.getAndClearLatinIMEExpectingUpdateSelection();
-            ResearchLogger.latinIME_onUpdateSelection(mLastSelectionStart, mLastSelectionEnd,
-                    oldSelStart, oldSelEnd, newSelStart, newSelEnd, composingSpanStart,
-                    composingSpanEnd, mExpectingUpdateSelection,
-                    expectingUpdateSelectionFromLogger, mConnection);
+            final boolean expectingUpdateSelectionFromLogger = false;
+               //     ResearchLogger.getAndClearLatinIMEExpectingUpdateSelection();
+         //   ResearchLogger.latinIME_onUpdateSelection(mLastSelectionStart, mLastSelectionEnd,
+       //             oldSelStart, oldSelEnd, newSelStart, newSelEnd, composingSpanStart,
+        //            composingSpanEnd, mExpectingUpdateSelection,
+       //             expectingUpdateSelectionFromLogger, mConnection;
             if (expectingUpdateSelectionFromLogger) {
                 // TODO: Investigate. Quitting now sounds wrong - we won't do the resetting work
                 return;
-            }
+           }
         }
 
         // TODO: refactor the following code to be less contrived.
@@ -1007,7 +1006,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         if (applicationSpecifiedCompletions == null) {
             clearSuggestionStrip();
             if (ProductionFlag.IS_EXPERIMENTAL) {
-                ResearchLogger.latinIME_onDisplayCompletions(null);
+           //     ResearchLogger.latinIME_onDisplayCompletions(null);
             }
             return;
         }
@@ -1031,7 +1030,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         mWordComposer.setAutoCorrection(mWordComposer.getTypedWord());
         setSuggestionStripShown(true);
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.latinIME_onDisplayCompletions(applicationSpecifiedCompletions);
+        //    ResearchLogger.latinIME_onDisplayCompletions(applicationSpecifiedCompletions);
         }
     }
 
@@ -1205,7 +1204,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
             mConnection.deleteSurroundingText(2, 0);
             mConnection.commitText(lastTwo.charAt(1) + " ", 1);
             if (ProductionFlag.IS_EXPERIMENTAL) {
-                ResearchLogger.latinIME_swapSwapperAndSpace();
+            //    ResearchLogger.latinIME_swapSwapperAndSpace();
             }
             mKeyboardSwitcher.updateShiftState();
         }
@@ -1335,7 +1334,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         if (code >= '0' && code <= '9') {
             sendDownUpKeyEventForBackwardCompatibility(code - '0' + KeyEvent.KEYCODE_0);
             if (ProductionFlag.IS_EXPERIMENTAL) {
-                ResearchLogger.latinIME_sendKeyCodePoint(code);
+           //     ResearchLogger.latinIME_sendKeyCodePoint(code);
             }
             return;
         }
@@ -1411,7 +1410,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
             break;
         case Keyboard.CODE_RESEARCH:
             if (ProductionFlag.IS_EXPERIMENTAL) {
-                ResearchLogger.getInstance().onResearchKeySelected(this);
+            //    ResearchLogger.getInstance().onResearchKeySelected(this);
             }
             break;
         default:
@@ -1452,7 +1451,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         }
         mConnection.endBatchEdit();
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.latinIME_onCodeInput(primaryCode, x, y);
+         //   ResearchLogger.latinIME_onCodeInput(primaryCode, x, y);
         }
     }
 
@@ -2121,7 +2120,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
             onCodeInput(primaryCode,
                     Constants.SUGGESTION_STRIP_COORDINATE, Constants.SUGGESTION_STRIP_COORDINATE);
             if (ProductionFlag.IS_EXPERIMENTAL) {
-                ResearchLogger.latinIME_punctuationSuggestion(index, suggestion);
+           //     ResearchLogger.latinIME_punctuationSuggestion(index, suggestion);
             }
             return;
         }
@@ -2161,7 +2160,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         commitChosenWord(suggestion, LastComposedWord.COMMIT_TYPE_MANUAL_PICK,
                 LastComposedWord.NOT_A_SEPARATOR);
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.latinIME_pickSuggestionManually(replacedWord, index, suggestion);
+       //     ResearchLogger.latinIME_pickSuggestionManually(replacedWord, index, suggestion);
         }
         mConnection.endBatchEdit();
         // Don't allow cancellation of manual pick
@@ -2303,7 +2302,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
                     Constants.NOT_A_COORDINATE, Constants.NOT_A_COORDINATE);
         }
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.latinIME_revertCommit(originallyTypedWord);
+       //     ResearchLogger.latinIME_revertCommit(originallyTypedWord);
         }
         // Don't restart suggestion yet. We'll restart if the user deletes the
         // separator.

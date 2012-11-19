@@ -28,7 +28,6 @@ import android.preference.PreferenceFragment;
 import android.util.Log;
 
 import com.android.inputmethod.keyboard.KeyboardSwitcher;
-import com.android.inputmethod.research.ResearchLogger;
 
 public final class DebugSettings extends PreferenceFragment
         implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -50,10 +49,10 @@ public final class DebugSettings extends PreferenceFragment
 
         final Preference usabilityStudyPref = findPreference(PREF_USABILITY_STUDY_MODE);
         if (usabilityStudyPref instanceof CheckBoxPreference) {
-            final CheckBoxPreference checkbox = (CheckBoxPreference)usabilityStudyPref;
-            checkbox.setChecked(prefs.getBoolean(PREF_USABILITY_STUDY_MODE,
-                    ResearchLogger.DEFAULT_USABILITY_STUDY_MODE));
-            checkbox.setSummary(R.string.settings_warning_researcher_mode);
+        //    final CheckBoxPreference checkbox = (CheckBoxPreference)usabilityStudyPref;
+          //  checkbox.setChecked(prefs.getBoolean(PREF_USABILITY_STUDY_MODE,
+              //      ResearchLogger.DEFAULT_USABILITY_STUDY_MODE));
+          //  checkbox.setSummary(R.string.settings_warning_researcher_mode);
         }
 
         mServiceNeedsRestart = false;

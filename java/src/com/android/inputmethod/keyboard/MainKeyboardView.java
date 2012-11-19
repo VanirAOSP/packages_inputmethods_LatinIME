@@ -55,7 +55,6 @@ import com.android.inputmethod.latin.StringUtils;
 import com.android.inputmethod.latin.SubtypeLocale;
 import com.android.inputmethod.latin.Utils.UsabilityStudyLogUtils;
 import com.android.inputmethod.latin.define.ProductionFlag;
-import com.android.inputmethod.research.ResearchLogger;
 
 import java.util.Locale;
 import java.util.WeakHashMap;
@@ -489,7 +488,7 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
         final int keyHeight = keyboard.mMostCommonKeyHeight - keyboard.mVerticalGap;
         mSpacebarTextSize = keyHeight * mSpacebarTextRatio;
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.mainKeyboardView_setKeyboard(keyboard);
+        //    ResearchLogger.mainKeyboardView_setKeyboard(keyboard);
         }
 
         // This always needs to be set since the accessibility state can
@@ -525,7 +524,7 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
         // to properly show the splash screen, which requires that the window token of the
         // KeyboardView be non-null.
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.getInstance().mainKeyboardView_onAttachedToWindow(this);
+       //     ResearchLogger.getInstance().mainKeyboardView_onAttachedToWindow(this);
         }
     }
 
@@ -535,7 +534,7 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
         // Notify the research logger that the keyboard view has been detached.  This is needed
         // to invalidate the reference of {@link MainKeyboardView} to null.
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.getInstance().mainKeyboardView_onDetachedFromWindow();
+        //    ResearchLogger.getInstance().mainKeyboardView_onDetachedFromWindow();
         }
     }
 
@@ -589,7 +588,7 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
      */
     protected boolean onLongPress(final Key parentKey, final PointerTracker tracker) {
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.mainKeyboardView_onLongPress();
+        //    ResearchLogger.mainKeyboardView_onLongPress();
         }
         final int primaryCode = parentKey.mCode;
         if (parentKey.hasEmbeddedMoreKey()) {
@@ -747,8 +746,8 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
             }
         }
         if (ProductionFlag.IS_EXPERIMENTAL) {
-            ResearchLogger.mainKeyboardView_processMotionEvent(me, action, eventTime, index, id,
-                    x, y);
+      //      ResearchLogger.mainKeyboardView_processMotionEvent(me, action, eventTime, index, id,
+//                    x, y);
         }
 
         if (mKeyTimerHandler.isInKeyRepeat()) {
@@ -819,8 +818,8 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
                             + pointerSize + "," + pointerPressure);
                 }
                 if (ProductionFlag.IS_EXPERIMENTAL) {
-                    ResearchLogger.mainKeyboardView_processMotionEvent(me, action, eventTime,
-                            i, pointerId, px, py);
+             //       ResearchLogger.mainKeyboardView_processMotionEvent(me, action, eventTime,
+            //                i, pointerId, px, py);
                 }
             }
         } else {
