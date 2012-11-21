@@ -483,7 +483,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if(keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-			if (mSettingsValues.mVolumeCursor && isInputViewShown()) {
+			if (isInputViewShown()) {
 				sendDownUpKeyEvents(keyCode == KeyEvent.KEYCODE_VOLUME_UP 
 						? KeyEvent.KEYCODE_DPAD_RIGHT : KeyEvent.KEYCODE_DPAD_LEFT);
 				return true;
@@ -494,7 +494,7 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
 
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
-		if (mSettingsValues.mVolumeCursor && isInputViewShown() &&
+		if (isInputViewShown() &&
 				(keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)) {
 			return true;
 		}
