@@ -487,9 +487,6 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
                 ? mSpaceKey.getIcon(keyboard.mIconsSet, Constants.Color.ALPHA_OPAQUE) : null;
         final int keyHeight = keyboard.mMostCommonKeyHeight - keyboard.mVerticalGap;
         mSpacebarTextSize = keyHeight * mSpacebarTextRatio;
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-        //    ResearchLogger.mainKeyboardView_setKeyboard(keyboard);
-        }
 
         // This always needs to be set since the accessibility state can
         // potentially change without the keyboard being set again.
@@ -520,22 +517,11 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        // Notify the research logger that the keyboard view has been attached.  This is needed
-        // to properly show the splash screen, which requires that the window token of the
-        // KeyboardView be non-null.
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-       //     ResearchLogger.getInstance().mainKeyboardView_onAttachedToWindow(this);
-        }
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        // Notify the research logger that the keyboard view has been detached.  This is needed
-        // to invalidate the reference of {@link MainKeyboardView} to null.
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-        //    ResearchLogger.getInstance().mainKeyboardView_onDetachedFromWindow();
-        }
     }
 
     @Override
@@ -587,9 +573,6 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
      * method on the base class if the subclass doesn't wish to handle the call.
      */
     protected boolean onLongPress(final Key parentKey, final PointerTracker tracker) {
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-        //    ResearchLogger.mainKeyboardView_onLongPress();
-        }
         final int primaryCode = parentKey.mCode;
         if (parentKey.hasEmbeddedMoreKey()) {
             final int embeddedCode = parentKey.mMoreKeys[0].mCode;
@@ -745,10 +728,6 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
                         + size + "," + pressure);
             }
         }
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-      //      ResearchLogger.mainKeyboardView_processMotionEvent(me, action, eventTime, index, id,
-//                    x, y);
-        }
 
         if (mKeyTimerHandler.isInKeyRepeat()) {
             final PointerTracker tracker = PointerTracker.getPointerTracker(id, this);
@@ -816,10 +795,6 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
                     UsabilityStudyLogUtils.getInstance().write("[Move]"  + eventTime + ","
                             + pointerId + "," + px + "," + py + ","
                             + pointerSize + "," + pointerPressure);
-                }
-                if (ProductionFlag.IS_EXPERIMENTAL) {
-             //       ResearchLogger.mainKeyboardView_processMotionEvent(me, action, eventTime,
-            //                i, pointerId, px, py);
                 }
             }
         } else {

@@ -20,7 +20,6 @@ public final class ProductionFlag {
     private ProductionFlag() {
         // This class is not publicly instantiable.
     }
-
-    public static final boolean IS_EXPERIMENTAL = false;
+    
     public static final boolean IS_INTERNAL = false;
 }

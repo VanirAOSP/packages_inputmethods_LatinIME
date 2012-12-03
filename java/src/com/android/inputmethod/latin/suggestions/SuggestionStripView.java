@@ -669,9 +669,6 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
         clear();
         mSuggestedWords = suggestedWords;
         mParams.layout(mSuggestedWords, mSuggestionsStrip, this, getWidth());
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-       //     ResearchLogger.suggestionStripView_setSuggestions(mSuggestedWords);
-        }
     }
 
     public int setMoreSuggestionsHeight(int remainingHeight) {

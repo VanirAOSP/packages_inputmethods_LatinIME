@@ -408,9 +408,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         mPrefs = prefs;
         LatinImeLogger.init(this, prefs);
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-         //   ResearchLogger.getInstance().init(this, prefs);
-        }
         InputMethodManagerCompatWrapper.init(this);
         SubtypeSwitcher.init(this);
         KeyboardSwitcher.init(this, prefs);
@@ -519,9 +516,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         }
 
         mIsMainDictionaryAvailable = DictionaryFactory.isDictionaryAvailable(this, subtypeLocale);
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-     //       ResearchLogger.getInstance().initSuggest(mSuggest);
-        }
 
         mUserDictionary = new UserBinaryDictionary(this, localeStr);
         mIsUserDictionaryAvailable = mUserDictionary.isEnabled();
@@ -699,9 +693,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
                     + ", word caps = "
                     + ((editorInfo.inputType & InputType.TYPE_TEXT_FLAG_CAP_WORDS) != 0));
         }
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-        //    ResearchLogger.latinIME_onStartInputViewInternal(editorInfo, mPrefs);
-        }
         if (InputAttributes.inPrivateImeOptions(null, NO_MICROPHONE_COMPAT, editorInfo)) {
             Log.w(TAG, "Deprecated private IME option specified: "
                     + editorInfo.privateImeOptions);
@@ -825,10 +816,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
 
     @Override
     public void onWindowHidden() {
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-       //     ResearchLogger.latinIME_onWindowHidden(mLastSelectionStart, mLastSelectionEnd,
-                    getCurrentInputConnection();
-        }
         super.onWindowHidden();
         final MainKeyboardView mainKeyboardView = mKeyboardSwitcher.getMainKeyboardView();
         if (mainKeyboardView != null) {
@@ -840,9 +827,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         super.onFinishInput();
 
         LatinImeLogger.commit();
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-         //   ResearchLogger.getInstance().latinIME_onFinishInputInternal();
-        }
 
         final MainKeyboardView mainKeyboardView = mKeyboardSwitcher.getMainKeyboardView();
         if (mainKeyboardView != null) {
@@ -876,18 +860,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
                     + ", nse=" + newSelEnd
                     + ", cs=" + composingSpanStart
                     + ", ce=" + composingSpanEnd);
-        }
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-            final boolean expectingUpdateSelectionFromLogger = false;
-               //     ResearchLogger.getAndClearLatinIMEExpectingUpdateSelection();
-         //   ResearchLogger.latinIME_onUpdateSelection(mLastSelectionStart, mLastSelectionEnd,
-       //             oldSelStart, oldSelEnd, newSelStart, newSelEnd, composingSpanStart,
-        //            composingSpanEnd, mExpectingUpdateSelection,
-       //             expectingUpdateSelectionFromLogger, mConnection;
-            if (expectingUpdateSelectionFromLogger) {
-                // TODO: Investigate. Quitting now sounds wrong - we won't do the resetting work
-                return;
-           }
         }
 
         // TODO: refactor the following code to be less contrived.
@@ -1005,9 +977,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         mApplicationSpecifiedCompletions = applicationSpecifiedCompletions;
         if (applicationSpecifiedCompletions == null) {
             clearSuggestionStrip();
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-           //     ResearchLogger.latinIME_onDisplayCompletions(null);
-            }
             return;
         }
 
@@ -1029,9 +998,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         // this case? This says to keep whatever the user typed.
         mWordComposer.setAutoCorrection(mWordComposer.getTypedWord());
         setSuggestionStripShown(true);
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-        //    ResearchLogger.latinIME_onDisplayCompletions(applicationSpecifiedCompletions);
-        }
     }
 
     private void setSuggestionStripShownInternal(final boolean shown,
@@ -1203,9 +1169,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
                 && lastTwo.charAt(0) == Keyboard.CODE_SPACE) {
             mConnection.deleteSurroundingText(2, 0);
             mConnection.commitText(lastTwo.charAt(1) + " ", 1);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-            //    ResearchLogger.latinIME_swapSwapperAndSpace();
-            }
             mKeyboardSwitcher.updateShiftState();
         }
     }
@@ -1333,9 +1296,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         // For backward compatibility. See {@link InputMethodService#sendKeyChar(char)}.
         if (code >= '0' && code <= '9') {
             sendDownUpKeyEventForBackwardCompatibility(code - '0' + KeyEvent.KEYCODE_0);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-           //     ResearchLogger.latinIME_sendKeyCodePoint(code);
-            }
             return;
         }
 
@@ -1408,11 +1368,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         case Keyboard.CODE_LANGUAGE_SWITCH:
             handleLanguageSwitchKey();
             break;
-        case Keyboard.CODE_RESEARCH:
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-            //    ResearchLogger.getInstance().onResearchKeySelected(this);
-            }
-            break;
         default:
             mSpaceState = SPACE_STATE_NONE;
             if (mCurrentSettings.isWordSeparator(primaryCode)) {
@@ -1450,9 +1405,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
             mEnteredText = null;
         }
         mConnection.endBatchEdit();
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-         //   ResearchLogger.latinIME_onCodeInput(primaryCode, x, y);
-        }
     }
 
     // Called from PointerTracker through the KeyboardActionListener interface
@@ -2119,9 +2071,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
             final int primaryCode = suggestion.charAt(0);
             onCodeInput(primaryCode,
                     Constants.SUGGESTION_STRIP_COORDINATE, Constants.SUGGESTION_STRIP_COORDINATE);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-           //     ResearchLogger.latinIME_punctuationSuggestion(index, suggestion);
-            }
             return;
         }
 
@@ -2159,9 +2108,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         mExpectingUpdateSelection = true;
         commitChosenWord(suggestion, LastComposedWord.COMMIT_TYPE_MANUAL_PICK,
                 LastComposedWord.NOT_A_SEPARATOR);
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-       //     ResearchLogger.latinIME_pickSuggestionManually(replacedWord, index, suggestion);
-        }
         mConnection.endBatchEdit();
         // Don't allow cancellation of manual pick
         mLastComposedWord.deactivate();
@@ -2300,9 +2246,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         if (ProductionFlag.IS_INTERNAL) {
             Stats.onSeparator(mLastComposedWord.mSeparatorString,
                     Constants.NOT_A_COORDINATE, Constants.NOT_A_COORDINATE);
-        }
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-       //     ResearchLogger.latinIME_revertCommit(originallyTypedWord);
         }
         // Don't restart suggestion yet. We'll restart if the user deletes the
         // separator.

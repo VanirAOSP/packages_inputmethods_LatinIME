@@ -149,9 +149,6 @@ public final class RichInputConnection {
         mCharAfterTheCursor = getTextAfterCursor(1, 0);
         if (null != mIC) {
             mIC.finishComposingText();
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-               // ResearchLogger.richInputConnection_finishComposingText();
-            }
         }
     }
 
@@ -171,9 +168,6 @@ public final class RichInputConnection {
         mComposingText.setLength(0);
         if (null != mIC) {
             mIC.finishComposingText();
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-           //     ResearchLogger.richInputConnection_finishComposingText();
-            }
         }
     }
 
@@ -185,9 +179,6 @@ public final class RichInputConnection {
         mComposingText.setLength(0);
         if (null != mIC) {
             mIC.commitText(text, i);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-            //    ResearchLogger.richInputConnection_commitText(text, i);
-            }
         }
     }
 
@@ -273,9 +264,6 @@ public final class RichInputConnection {
         }
         if (null != mIC) {
             mIC.deleteSurroundingText(i, j);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-           //     ResearchLogger.richInputConnection_deleteSurroundingText(i, j);
-            }
         }
         if (DEBUG_PREVIOUS_TEXT) checkConsistencyForDebug();
     }
@@ -284,9 +272,6 @@ public final class RichInputConnection {
         mIC = mParent.getCurrentInputConnection();
         if (null != mIC) {
             mIC.performEditorAction(actionId);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-           //     ResearchLogger.richInputConnection_performEditorAction(actionId);
-            }
         }
     }
 
@@ -332,9 +317,6 @@ public final class RichInputConnection {
         }
         if (null != mIC) {
             mIC.sendKeyEvent(keyEvent);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-           //     ResearchLogger.richInputConnection_sendKeyEvent(keyEvent);
-            }
         }
     }
 
@@ -365,9 +347,6 @@ public final class RichInputConnection {
         // TODO: support values of i != 1. At this time, this is never called with i != 1.
         if (null != mIC) {
             mIC.setComposingText(text, i);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-           //     ResearchLogger.richInputConnection_setComposingText(text, i);
-            }
         }
         if (DEBUG_PREVIOUS_TEXT) checkConsistencyForDebug();
     }
@@ -377,9 +356,6 @@ public final class RichInputConnection {
         if (DEBUG_PREVIOUS_TEXT) checkConsistencyForDebug();
         if (null != mIC) {
             mIC.setSelection(from, to);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-           //     ResearchLogger.richInputConnection_setSelection(from, to);
-            }
         }
         mCurrentCursorPosition = from;
         mCommittedTextBeforeComposingText.setLength(0);
@@ -393,9 +369,6 @@ public final class RichInputConnection {
         // TextView flash the text for a second based on indices contained in the argument.
         if (null != mIC) {
             mIC.commitCorrection(correctionInfo);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-           //     ResearchLogger.richInputConnection_commitCorrection(correctionInfo);
-            }
         }
         if (DEBUG_PREVIOUS_TEXT) checkConsistencyForDebug();
     }
@@ -409,9 +382,6 @@ public final class RichInputConnection {
         mComposingText.setLength(0);
         if (null != mIC) {
             mIC.commitCompletion(completionInfo);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-          //      ResearchLogger.richInputConnection_commitCompletion(completionInfo);
-            }
         }
         if (DEBUG_PREVIOUS_TEXT) checkConsistencyForDebug();
     }

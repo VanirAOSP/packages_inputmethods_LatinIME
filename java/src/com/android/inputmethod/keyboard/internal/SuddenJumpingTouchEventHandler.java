@@ -144,9 +144,6 @@ public final class SuddenJumpingTouchEventHandler {
         if (handleSuddenJumping(me)) {
             if (DEBUG_MODE)
                 Log.w(TAG, "onTouchEvent: ignore sudden jump " + me);
-            if (ProductionFlag.IS_EXPERIMENTAL) {
-           //     ResearchLogger.suddenJumpingTouchEventHandler_onTouchEvent(me);
-            }
             return true;
         }
         return mView.processMotionEvent(me);

@@ -458,10 +458,6 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
                     output, ignoreModifierKey ? " ignoreModifier" : "",
                     altersCode ? " altersCode" : "", key.isEnabled() ? "" : " disabled"));
         }
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-       //     ResearchLogger.pointerTracker_callListenerOnCodeInput(key, x, y, ignoreModifierKey,
-        //            altersCode, code);
-        }
         if (ignoreModifierKey) {
             return;
         }
@@ -490,10 +486,6 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
                     withSliding ? " sliding" : "", ignoreModifierKey ? " ignoreModifier" : "",
                     key.isEnabled() ?  "": " disabled"));
         }
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-       //     ResearchLogger.pointerTracker_callListenerOnRelease(key, primaryCode, withSliding,
-        //           ignoreModifierKey);
-        }
         if (ignoreModifierKey) {
             return;
         }
@@ -505,9 +497,6 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
     private void callListenerOnCancelInput() {
         if (DEBUG_LISTENER) {
             Log.d(TAG, String.format("[%d] onCancelInput", mPointerId));
-        }
-        if (ProductionFlag.IS_EXPERIMENTAL) {
-       //     ResearchLogger.pointerTracker_callListenerOnCancelInput();
         }
         mListener.onCancelInput();
     }
@@ -783,9 +772,6 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
                     Log.w(TAG, String.format("[%d] onDownEvent:"
                             + " ignore potential noise: time=%d distance=%d",
                             mPointerId, deltaT, distance));
-                if (ProductionFlag.IS_EXPERIMENTAL) {
-            //        ResearchLogger.pointerTracker_onDownEvent(deltaT, distance * distance);
-                }
                 mKeyAlreadyProcessed = true;
                 return;
             }
@@ -955,9 +941,6 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
                                     x, y, Keyboard.printableCode(key.mCode)));
                         }
                         // TODO: This should be moved to outside of this nested if-clause?
-                        if (ProductionFlag.IS_EXPERIMENTAL) {
-                      //      ResearchLogger.pointerTracker_onMoveEvent(x, y, lastX, lastY);
-                        }
                         onUpEventInternal(eventTime);
                         onDownEventInternal(x, y, eventTime);
                     }
