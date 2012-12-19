@@ -12,14 +12,14 @@
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- */
+ */ 
 
 package com.android.inputmethod.keyboard;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.util.Log;
+//import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -121,7 +121,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
         } catch (NumberFormatException e) {
             // Format error, keyboard theme is default to 0.
         }
-        Log.w(TAG, "Illegal keyboard theme in preference: " + themeIndex + ", default to 0");
+//      Log.w(TAG, "Illegal keyboard theme in preference: " + themeIndex + ", default to 0");
         return KEYBOARD_THEMES[0];
     }
 
@@ -148,7 +148,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
         try {
             mState.onLoadKeyboard(mResources.getString(R.string.layout_switch_back_symbols));
         } catch (KeyboardLayoutSetException e) {
-            Log.w(TAG, "loading keyboard failed: " + e.mKeyboardId, e.getCause());
+ //           Log.w(TAG, "loading keyboard failed: " + e.mKeyboardId, e.getCause());
             LatinImeLogger.logOnException(e.mKeyboardId.toString(), e.getCause());
             return;
         }

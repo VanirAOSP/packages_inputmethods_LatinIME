@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 
 package com.android.inputmethod.keyboard;
 
@@ -30,7 +30,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -765,8 +765,8 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
             } else if (pointerCount == 1 && oldPointerCount == 1) {
                 tracker.processMotionEvent(action, x, y, eventTime, this);
             } else {
-                Log.w(TAG, "Unknown touch panel behavior: pointer count is " + pointerCount
-                        + " (old " + oldPointerCount + ")");
+ //               Log.w(TAG, "Unknown touch panel behavior: pointer count is " + pointerCount
+ //                       + " (old " + oldPointerCount + ")");
             }
             return true;
         }
