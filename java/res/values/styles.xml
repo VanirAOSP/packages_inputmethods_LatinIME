@@ -44,8 +44,8 @@
         <item name="keyShiftedLetterHintRatio">@fraction/key_uppercase_letter_ratio</item>
         <item name="keyTypeface">normal</item>
         <item name="keyTextColor">#FFFFFFFF</item>
-        <item name="keyTextInactivatedColor">#FFFFFFFF</item>
-        <item name="keyHintLetterColor">#80000000</item>
+        <item name="keyTextInactivatedColor">#FFFFFFFF</item> 
+        <item name="keyHintLetterColor">#FFFFFFFF</item>
         <item name="keyHintLabelColor">#E0E0E4E5</item>
         <item name="keyShiftedLetterHintInactivatedColor">#66E0E4E5</item>
         <item name="keyShiftedLetterHintActivatedColor">#CCE0E4E5</item>
