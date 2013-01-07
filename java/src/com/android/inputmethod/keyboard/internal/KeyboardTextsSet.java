@@ -386,9 +386,9 @@ public final class KeyboardTextsSet {
         /* 124 */ "PM",
         // Label for "switch to symbols" key on PC QWERTY layout
         /* 125 */ "Sym",
-        /* 126 */ ".com",
+        /* 126 */ "@",
         // popular web domains for the locale - most popular, displayed on the keyboard
-        /* 127 */ "!hasLabels!,.net,.org,.gov,.edu",
+        /* 127 */ "!hasLabels!,.com,.net,.org,.gov,.edu",
         /* 128 */ "!fixedColumnOrder!5,!hasLabels!,=-O|=-O ,:-P|:-P ,;-)|;-) ,:-(|:-( ,:-)|:-) ,:-!|:-! ,:-$|:-$ ,B-)|B-) ,:O|:O ,:-*|:-* ,:-D|:-D ,:\'(|:\'( ,:-\\\\|:-\\\\ ,O:-)|O:-) ,:-[|:-[ ",
     };
 

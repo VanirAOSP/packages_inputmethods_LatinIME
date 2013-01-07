@@ -131,7 +131,7 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
     }
 
     private static final class SuggestionStripViewParams {
-        private static final int DEFAULT_SUGGESTIONS_COUNT_IN_STRIP = 3;
+        private static final int DEFAULT_SUGGESTIONS_COUNT_IN_STRIP = 5;
         private static final float DEFAULT_CENTER_SUGGESTION_PERCENTILE = 0.40f;
         private static final int DEFAULT_MAX_MORE_SUGGESTIONS_ROW = 2;
         private static final int PUNCTUATIONS_IN_STRIP = 5;

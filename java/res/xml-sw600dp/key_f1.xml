@@ -54,8 +54,8 @@
         <default>
             <Key
                 latin:keyLabel="/"
-                latin:keyHintLabel="\@"
-                latin:moreKeys="\@"
+                latin:keyHintLabel="\"
+                latin:moreKeys="\"
                 latin:keyStyle="hasShiftedLetterHintStyle" />
         </default>
     </switch>

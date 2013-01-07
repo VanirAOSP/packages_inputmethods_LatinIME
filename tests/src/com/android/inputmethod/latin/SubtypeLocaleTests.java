@@ -94,9 +94,9 @@ public class SubtypeLocaleTests extends AndroidTestCase {
         final RunInLocale<Void> tests = new RunInLocale<Void>() {
             @Override
             protected Void job(Resources res) {
-                assertEquals("en_US", "English (US)",
+                assertEquals("en_US", "Vanir",
                         SubtypeLocale.getSubtypeDisplayName(EN_US, res));
-                assertEquals("en_GB", "English (UK)",
+                assertEquals("en_GB", "Vanir",
                         SubtypeLocale.getSubtypeDisplayName(EN_GB, res));
                 assertEquals("fr   ", "Français",
                         SubtypeLocale.getSubtypeDisplayName(FR, res));
@@ -157,9 +157,9 @@ public class SubtypeLocaleTests extends AndroidTestCase {
         final RunInLocale<Void> tests = new RunInLocale<Void>() {
             @Override
             protected Void job(Resources res) {
-                assertEquals("en_US", "English (US)",
+                assertEquals("en_US", "Vanir",
                         SubtypeLocale.getSubtypeDisplayName(EN_US, res));
-                assertEquals("en_GB", "English (UK)",
+                assertEquals("en_GB", "Vanir",
                         SubtypeLocale.getSubtypeDisplayName(EN_GB, res));
                 assertEquals("fr   ", "Français",
                         SubtypeLocale.getSubtypeDisplayName(FR, res));
