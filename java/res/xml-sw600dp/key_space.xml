@@ -49,17 +49,13 @@
         >
             <Key
                 latin:keyStyle="spaceKeyStyle"
-                latin:keyWidth="36.0%p" />
-            <Key
-                latin:keyStyle="smileyKeyStyle" />
+                latin:keyWidth="45.0%p" />
         </case>
         <!-- languageSwitchKeyEnabled="false" -->
         <default>
             <Key
                 latin:keyStyle="spaceKeyStyle"
-                latin:keyWidth="36.0%p" />
-            <Key
-                latin:keyStyle="smileyKeyStyle" />
+                latin:keyWidth="45.0%p" />
         </default>
     </switch>
 </merge>

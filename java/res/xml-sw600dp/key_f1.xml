@@ -40,7 +40,10 @@
             latin:mode="email"
         >
             <Key
-                latin:keyLabel="\@" />
+                latin:keyLabel="/"
+                latin:keyHintLabel=":"
+                latin:moreKeys=":"
+                latin:keyStyle="hasShiftedLetterHintStyle" />
         </case>
         <case
             latin:mode="url"
@@ -53,10 +56,7 @@
         </case>
         <default>
             <Key
-                latin:keyLabel="/"
-                latin:keyHintLabel="\"
-                latin:moreKeys="\"
-                latin:keyStyle="hasShiftedLetterHintStyle" />
+                latin:keyStyle="smileyKeyStyle" />
         </default>
     </switch>
 </merge>

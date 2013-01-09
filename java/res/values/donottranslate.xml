@@ -175,7 +175,7 @@
     <string name="subtype_generic_azerty">%s (AZERTY)</string>
     <string name="subtype_generic_dvorak">%s (Dvorak)</string>
     <string name="subtype_generic_colemak">%s (Colemak)</string>
-    <string name="subtype_generic_pcqwerty">%s (PC)</string>
+    <string name="subtype_generic_pcqwerty">%s (5-row)</string>
 
     <!-- Description for Bulgarian (BDS) subtype. -->
     <string name="subtype_bulgarian_bds">%s (BDS)</string>

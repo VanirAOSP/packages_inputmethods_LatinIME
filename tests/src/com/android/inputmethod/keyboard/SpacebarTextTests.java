@@ -117,7 +117,7 @@ public class SpacebarTextTests extends AndroidTestCase {
         final InputMethodSubtype ZZ = ImfUtils.findSubtypeByLocaleAndKeyboardLayoutSet(
                 context, SubtypeLocale.NO_LANGUAGE, "qwerty");
 
-        assertEquals("en_US", "English (US)",
+        assertEquals("en_US", "Vanir",
                 MainKeyboardView.getFullDisplayName(EN_US, mRes));
         assertEquals("en_GB", "English (UK)",
                 MainKeyboardView.getFullDisplayName(EN_GB, mRes));
@@ -130,7 +130,7 @@ public class SpacebarTextTests extends AndroidTestCase {
         assertEquals("zz   ", "QWERTY",
                 MainKeyboardView.getFullDisplayName(ZZ, mRes));
 
-        assertEquals("en_US", "English",  MainKeyboardView.getMiddleDisplayName(EN_US));
+        assertEquals("en_US", "Vanir",  MainKeyboardView.getMiddleDisplayName(EN_US));
         assertEquals("en_GB", "English",  MainKeyboardView.getMiddleDisplayName(EN_GB));
         assertEquals("fr   ", "Français", MainKeyboardView.getMiddleDisplayName(FR));
         assertEquals("fr_CA", "Français", MainKeyboardView.getMiddleDisplayName(FR_CA));
