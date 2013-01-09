@@ -86,7 +86,7 @@
         android:settingsActivity="com.android.inputmethod.latin.SettingsActivity"
         android:isDefault="@bool/im_is_default">
     <subtype android:icon="@drawable/ic_subtype_keyboard"
-            android:label="@string/subtype_en_US"
+            android:label="@string/newsubtype_en_US"
             android:subtypeId="-921088104"
             android:imeSubtypeLocale="en_US"
             android:imeSubtypeMode="keyboard"

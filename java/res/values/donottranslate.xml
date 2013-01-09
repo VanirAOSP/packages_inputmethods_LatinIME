@@ -139,11 +139,9 @@
          For each exception, there should be related string resource for display name that has
          explicit keyboard layout. The string resource name must be "subtype_with_layout_<locale>. -->
     <string-array name="subtype_locale_exception_keys">
-        <item>en_US</item>
         <item>en_GB</item>
     </string-array>
     <string-array name="subtype_locale_exception_values">
-        <item>English (US)</item>
         <item>English (UK)</item>
     </string-array>
 
@@ -166,7 +164,7 @@
         <item>AZERTY</item>
         <item>Dvorak</item>
         <item>Colemak</item>
-        <item>PC</item>
+        <item>5-row</item>
     </string-array>
     <!-- Description for generic subtype that has predefined layout.
          The string resource name must be "subtype_generic_<layout name>".

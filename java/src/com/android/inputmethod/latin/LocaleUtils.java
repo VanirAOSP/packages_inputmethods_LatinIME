@@ -72,7 +72,7 @@ public final class LocaleUtils {
 
     // Make this match the maximum match level. If this evolves to have more than 2 digits
     // when written in base 10, also adjust the getMatchLevelSortedString method.
-    private static final int MATCH_LEVEL_MAX = 30;
+    private static final int MATCH_LEVEL_MAX = 300;
 
     /**
      * Return how well a tested locale matches a reference locale.
