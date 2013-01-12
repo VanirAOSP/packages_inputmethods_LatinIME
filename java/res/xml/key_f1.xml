@@ -33,7 +33,7 @@
             latin:mode="email"
         >
             <Key
-                latin:styleName="comKeyStyle" />
+                latin:keyLabel="\@" />
         </case>
         <case
             latin:hasShortcutKey="true"
