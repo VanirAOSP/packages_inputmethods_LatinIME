@@ -166,10 +166,6 @@ public final class InputAttributes {
             Log.i(TAG, "  TYPE_TEXT_FLAG_AUTO_COMPLETE");
     }
 
-    public boolean shouldInsertSpacesAutomatically() {
-        return InputTypeUtils.isAutoSpaceFriendlyType(mInputType);
-    }
-
     // Pretty print
     @Override
     public String toString() {

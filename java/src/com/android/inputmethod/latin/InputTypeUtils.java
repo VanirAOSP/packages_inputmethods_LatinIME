@@ -29,13 +29,12 @@ public final class InputTypeUtils implements InputType {
             TYPE_CLASS_TEXT | TYPE_TEXT_VARIATION_PASSWORD;
     private static final int TEXT_VISIBLE_PASSWORD_INPUT_TYPE =
             TYPE_CLASS_TEXT | TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
-
-    private static final int SUPPRESSING_AUTO_SPACES_FIELD_TYPE =
-            InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
-            | InputType.TYPE_TEXT_VARIATION_PASSWORD
-            | InputType.TYPE_TEXT_VARIATION_URI
-            | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-            | InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD;
+    private static final int[] SUPPRESSING_AUTO_SPACES_FIELD_VARIATION = {
+        InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS,
+        InputType.TYPE_TEXT_VARIATION_PASSWORD,
+        InputType.TYPE_TEXT_VARIATION_URI,
+        InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD,
+        InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD };
 
     private InputTypeUtils() {
         // This utility class is not publicly instantiable.
@@ -96,6 +95,11 @@ public final class InputTypeUtils implements InputType {
     }
 
     public static boolean isAutoSpaceFriendlyType(final int inputType) {
-        return 0 == (inputType & SUPPRESSING_AUTO_SPACES_FIELD_TYPE);
+        if (TYPE_CLASS_TEXT != (TYPE_MASK_CLASS & inputType)) return false;
+        final int variation = TYPE_MASK_VARIATION & inputType;
+        for (final int fieldVariation : SUPPRESSING_AUTO_SPACES_FIELD_VARIATION) {
+            if (variation == fieldVariation) return false;
+        }
+        return true;
     }
 }

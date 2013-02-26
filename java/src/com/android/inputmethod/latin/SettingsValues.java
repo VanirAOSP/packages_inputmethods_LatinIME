@@ -274,7 +274,7 @@ public final class SettingsValues {
     }
 
     public boolean shouldInsertSpacesAutomatically() {
-        return mInputAttributes.shouldInsertSpacesAutomatically();
+        return mInputAttributes.mShouldInsertSpacesAutomatically;
     }
 
     private static boolean isAutoCorrectEnabled(final Resources res,
