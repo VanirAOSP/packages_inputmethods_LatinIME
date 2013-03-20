@@ -785,15 +785,6 @@ public final class LatinIME extends InputMethodService implements KeyboardAction
         mHandler.cancelUpdateSuggestionStrip();
         mHandler.cancelDoubleSpacesTimer();
 
-        // If we come here something in the text state is very likely to have changed.
-        // We should update the shift state regardless of whether we are restarting or not, because
-        // this is not perceived as a layout change that may be disruptive like we may have with
-        // switcher.loadKeyboard; in apps like Talk, we come here when the text is sent and the
-        // field gets emptied and we need to re-evaluate the shift state, but not the whole layout
-        // which would be disruptive.
-        // Space state must be updated before calling updateShiftState
-        mKeyboardSwitcher.updateShiftState();
-
         mainKeyboardView.setMainDictionaryAvailability(mIsMainDictionaryAvailable);
         mainKeyboardView.setKeyPreviewPopupEnabled(mCurrentSettings.mKeyPreviewPopupOn,
                 mCurrentSettings.mKeyPreviewPopupDismissDelay);
