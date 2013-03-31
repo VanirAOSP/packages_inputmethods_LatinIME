@@ -673,6 +673,11 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
         return (sPointerTrackerQueue == null) ? 1 : sPointerTrackerQueue.size();
     }
 
+    private boolean isOldestTrackerElement() {
+        return (sPointerTrackerQueue != null) ?
+                sPointerTrackerQueue.getOldestElement() == this : false;
+    }
+
     private void mayStartBatchInput(final Key key) {
         if (sInGesture || !mGestureStrokeWithPreviewPoints.isStartOfAGesture()) {
             return;
@@ -690,7 +695,7 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
             sLastRecognitionTime = 0;
             mListener.onStartBatchInput();
         }
-        final boolean isOldestTracker = sPointerTrackerQueue.getOldestElement() == this;
+        final boolean isOldestTracker = isOldestTrackerElement();
         mDrawingProxy.showGesturePreviewTrail(this, isOldestTracker);
     }
 
@@ -712,7 +717,7 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
                 }
             }
         }
-        final boolean isOldestTracker = sPointerTrackerQueue.getOldestElement() == this;
+        final boolean isOldestTracker = isOldestTrackerElement();
         mDrawingProxy.showGesturePreviewTrail(this, isOldestTracker);
     }
 
@@ -729,7 +734,7 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
                 mListener.onEndBatchInput(sAggregratedPointers);
             }
         }
-        final boolean isOldestTracker = sPointerTrackerQueue.getOldestElement() == this;
+        final boolean isOldestTracker = isOldestTrackerElement();
         mDrawingProxy.showGesturePreviewTrail(this, isOldestTracker);
     }
 
