@@ -36,6 +36,10 @@ LOCAL_CFLAGS += -Winline
 endif # TARGET_GCC_VERSION
 endif # TARGET_ARCH
 
+# Workaround for a bug in gcc 4.8: As soon as an optimization level other than
+# 0 is used, the keyboard fails to pop up.
+LOCAL_CFLAGS += $(call cc-ifversion, -ge, 48, -O0 -fauto-inc-dec -fcompare-elim -fcprop-registers -fdce -fdefer-pop -fdse -fguess-branch-probability -fif-conversion2 -fif-conversion -fipa-pure-const -fipa-profile -fipa-reference -fmerge-constants -fsplit-wide-types -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-copyrename -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-fre -ftree-phiprop -ftree-sra -ftree-pta -ftree-ter -funit-at-a-time -fomit-frame-pointer -fcombine-stack-adjustments -fforward-propagate -finline-functions-called-once -fsched-pressure -fsection-anchors -fshrink-wrap -ftree-builtin-call-dce -ftree-copy-prop -ftree-sink -ftree-slsr)
+
 # To suppress compiler warnings for unused variables/functions used for debug features etc.
 LOCAL_CFLAGS += -Wno-unused-parameter -Wno-unused-function
 

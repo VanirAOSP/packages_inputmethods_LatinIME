@@ -256,6 +256,7 @@ void UnigramDictionary::getWordSuggestions(ProximityInfo *proximityInfo, const i
     // Note: This line is intentionally left blank
     PROF_END(6);
 
+#ifndef NDEBUG
     if (DEBUG_DICT) {
         queuePool->dumpSubQueue1TopSuggestions();
         for (int i = 0; i < SUB_QUEUE_MAX_COUNT; ++i) {
@@ -275,6 +276,7 @@ void UnigramDictionary::getWordSuggestions(ProximityInfo *proximityInfo, const i
             }
         }
     }
+#endif
 }
 
 void UnigramDictionary::initSuggestions(ProximityInfo *proximityInfo, const int *xCoordinates,
