@@ -2549,28 +2549,38 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
         }
     }
 
+    private boolean handleVolumeDown(int keyCode) {
+        if(keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+              if (mSettings.getCurrent().mVolumeCursor && isInputViewShown()) {
+                     sendDownUpKeyEvents(keyCode == KeyEvent.KEYCODE_VOLUME_UP 
+                                     ? KeyEvent.KEYCODE_DPAD_RIGHT : KeyEvent.KEYCODE_DPAD_LEFT);
+                     return true;
+              }
+         }
+         return false;
+    }
+
     // Hooks for hardware keyboard
     @Override
-    public boolean onKeyDown(final int keyCode, final KeyEvent event) {
-        if (!ProductionFlag.IS_HARDWARE_KEYBOARD_SUPPORTED) return super.onKeyDown(keyCode, event);
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        final boolean wasVolCursor = handleVolumeDown(keyCode);
         // onHardwareKeyEvent, like onKeyDown returns true if it handled the event, false if
         // it doesn't know what to do with it and leave it to the application. For example,
         // hardware key events for adjusting the screen's brightness are passed as is.
-        if (mEventInterpreter.onHardwareKeyEvent(event)) {
+        if (!wasVolCursor && ProductionFlag.IS_HARDWARE_KEYBOARD_SUPPORTED && mEventInterpreter.onHardwareKeyEvent(event)) {
             final long keyIdentifier = event.getDeviceId() << 32 + event.getKeyCode();
             mCurrentlyPressedHardwareKeys.add(keyIdentifier);
             return true;
         }
-        return super.onKeyDown(keyCode, event);
+        return wasVolCursor || super.onKeyDown(keyCode, event);
     }
 
     @Override
-    public boolean onKeyUp(final int keyCode, final KeyEvent event) {
-        final long keyIdentifier = event.getDeviceId() << 32 + event.getKeyCode();
-        if (mCurrentlyPressedHardwareKeys.remove(keyIdentifier)) {
-            return true;
-        }
-        return super.onKeyUp(keyCode, event);
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+          final long keyIdentifier = event.getDeviceId() << 32 + event.getKeyCode();
+          return  ((mSettings.getCurrent().mVolumeCursor && isInputViewShown() && (keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN))
+             || (mCurrentlyPressedHardwareKeys.remove(keyIdentifier))
+             || super.onKeyUp(keyCode, event));
     }
 
     // onKeyDown and onKeyUp are the main events we are interested in. There are two more events
