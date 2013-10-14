@@ -42,12 +42,6 @@
             android:title="@string/popup_on_keypress"
             android:persistent="true"
             android:defaultValue="true" />
-        <CheckBoxPreference
-            android:key="volume_cursor"
-            android:title="@string/prefs_volume_cursor"
-            android:summary="@string/prefs_volume_cursor_summary"
-            android:persistent="true"
-            android:defaultValue="true" />
         <ListPreference
             android:key="voice_mode"
             android:title="@string/voice_input"

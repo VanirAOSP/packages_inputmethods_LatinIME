@@ -73,7 +73,6 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     public static final String PREF_INPUT_LANGUAGE = "input_language";
     public static final String PREF_SELECTED_LANGUAGES = "selected_languages";
     public static final String PREF_DEBUG_SETTINGS = "debug_settings";
-    public static final String PREF_VOLUME_CURSOR = "volume_cursor";
     public static final String PREF_KEY_IS_INTERNAL = "pref_key_is_internal";
 
     // This preference key is deprecated. Use {@link #PREF_SHOW_LANGUAGE_SWITCH_KEY} instead.

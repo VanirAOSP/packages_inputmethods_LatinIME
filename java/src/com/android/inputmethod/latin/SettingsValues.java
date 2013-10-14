@@ -79,7 +79,6 @@ public final class SettingsValues {
     public final int mSuggestionVisibility;
     private final boolean mVoiceKeyEnabled;
     private final boolean mVoiceKeyOnMain;
-    public final boolean mVolumeCursor;
 
     // Debug settings
     public final boolean mIsInternal;
@@ -141,7 +140,6 @@ public final class SettingsValues {
                 autoCorrectionThresholdRawValue);
         mVoiceKeyEnabled = mVoiceMode != null && !mVoiceMode.equals(voiceModeOff);
         mVoiceKeyOnMain = mVoiceMode != null && mVoiceMode.equals(voiceModeMain);
-        mVolumeCursor = prefs.getBoolean(Settings.PREF_VOLUME_CURSOR, true);
         mGestureInputEnabled = Settings.readGestureInputEnabled(prefs, res);
         mGesturePreviewTrailEnabled = prefs.getBoolean(Settings.PREF_GESTURE_PREVIEW_TRAIL, true);
         mGestureFloatingPreviewTextEnabled = prefs.getBoolean(
