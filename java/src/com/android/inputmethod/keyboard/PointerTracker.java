@@ -38,7 +38,6 @@ import com.android.inputmethod.latin.settings.Settings;
 import com.android.inputmethod.latin.utils.CollectionUtils;
 import com.android.inputmethod.latin.utils.CoordinateUtils;
 import com.android.inputmethod.latin.utils.ResourceUtils;
-import com.android.inputmethod.research.ResearchLogger;
 
 import java.util.ArrayList;
 
@@ -535,10 +534,6 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
                     output, ignoreModifierKey ? " ignoreModifier" : "",
                     altersCode ? " altersCode" : "", key.isEnabled() ? "" : " disabled"));
         }
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            ResearchLogger.pointerTracker_callListenerOnCodeInput(key, x, y, ignoreModifierKey,
-                    altersCode, code);
-        }
         if (ignoreModifierKey) {
             return;
         }
@@ -568,10 +563,6 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
                     withSliding ? " sliding" : "", ignoreModifierKey ? " ignoreModifier" : "",
                     key.isEnabled() ?  "": " disabled"));
         }
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            ResearchLogger.pointerTracker_callListenerOnRelease(key, primaryCode, withSliding,
-                    ignoreModifierKey);
-        }
         if (ignoreModifierKey) {
             return;
         }
@@ -590,9 +581,6 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
     private void callListenerOnCancelInput() {
         if (DEBUG_LISTENER) {
             Log.d(TAG, String.format("[%d] onCancelInput", mPointerId));
-        }
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            ResearchLogger.pointerTracker_callListenerOnCancelInput();
         }
         mListener.onCancelInput();
     }
@@ -921,9 +909,6 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
                     Log.w(TAG, String.format("[%d] onDownEvent:"
                             + " ignore potential noise: time=%d distance=%d",
                             mPointerId, deltaT, distance));
-                if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-                    ResearchLogger.pointerTracker_onDownEvent(deltaT, distance * distance);
-                }
                 cancelTrackingForAction();
                 return;
             }
@@ -1082,10 +1067,6 @@ public final class PointerTracker implements PointerTrackerQueue.Element {
                     getDistance(x, y, lastX, lastY),
                     lastX, lastY, Constants.printableCode(oldKey.getCode()),
                     x, y, Constants.printableCode(key.getCode())));
-        }
-        // TODO: This should be moved to outside of this nested if-clause?
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            ResearchLogger.pointerTracker_onMoveEvent(x, y, lastX, lastY);
         }
         onUpEventInternal(x, y, eventTime);
         onDownEventInternal(x, y, eventTime);

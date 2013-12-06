@@ -42,7 +42,6 @@ import com.android.inputmethod.latin.SuggestedWords.SuggestedWordInfo;
 import com.android.inputmethod.latin.define.ProductionFlag;
 import com.android.inputmethod.latin.suggestions.MoreSuggestions.MoreSuggestionsListener;
 import com.android.inputmethod.latin.utils.CollectionUtils;
-import com.android.inputmethod.research.ResearchLogger;
 
 import java.util.ArrayList;
 
@@ -130,9 +129,6 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
         clear();
         mSuggestedWords = suggestedWords;
         mLayoutHelper.layout(mSuggestedWords, mSuggestionsStrip, this);
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            ResearchLogger.suggestionStripView_setSuggestions(mSuggestedWords);
-        }
     }
 
     public int setMoreSuggestionsHeight(final int remainingHeight) {

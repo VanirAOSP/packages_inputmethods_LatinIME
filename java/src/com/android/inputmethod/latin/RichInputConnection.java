@@ -33,7 +33,6 @@ import com.android.inputmethod.latin.utils.DebugLogUtils;
 import com.android.inputmethod.latin.utils.SpannableStringUtils;
 import com.android.inputmethod.latin.utils.StringUtils;
 import com.android.inputmethod.latin.utils.TextRange;
-import com.android.inputmethod.research.ResearchLogger;
 
 import java.util.Locale;
 import java.util.regex.Pattern;
@@ -186,9 +185,6 @@ public final class RichInputConnection {
         }
         if (null != mIC && shouldFinishComposition) {
             mIC.finishComposingText();
-            if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-                ResearchLogger.richInputConnection_finishComposingText();
-            }
         }
         return true;
     }
@@ -208,9 +204,6 @@ public final class RichInputConnection {
         mComposingText.setLength(0);
         if (null != mIC) {
             mIC.finishComposingText();
-            if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-                ResearchLogger.richInputConnection_finishComposingText();
-            }
         }
     }
 
@@ -332,9 +325,6 @@ public final class RichInputConnection {
         }
         if (null != mIC) {
             mIC.deleteSurroundingText(beforeLength, afterLength);
-            if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-                ResearchLogger.richInputConnection_deleteSurroundingText(beforeLength, afterLength);
-            }
         }
         if (DEBUG_PREVIOUS_TEXT) checkConsistencyForDebug();
     }
@@ -343,9 +333,6 @@ public final class RichInputConnection {
         mIC = mParent.getCurrentInputConnection();
         if (null != mIC) {
             mIC.performEditorAction(actionId);
-            if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-                ResearchLogger.richInputConnection_performEditorAction(actionId);
-            }
         }
     }
 
@@ -391,9 +378,6 @@ public final class RichInputConnection {
         }
         if (null != mIC) {
             mIC.sendKeyEvent(keyEvent);
-            if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-                ResearchLogger.richInputConnection_sendKeyEvent(keyEvent);
-            }
         }
     }
 
@@ -425,9 +409,6 @@ public final class RichInputConnection {
         // TODO: support values of i != 1. At this time, this is never called with i != 1.
         if (null != mIC) {
             mIC.setComposingText(text, newCursorPosition);
-            if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-                ResearchLogger.richInputConnection_setComposingText(text, newCursorPosition);
-            }
         }
         if (DEBUG_PREVIOUS_TEXT) checkConsistencyForDebug();
     }
@@ -437,9 +418,6 @@ public final class RichInputConnection {
         if (DEBUG_PREVIOUS_TEXT) checkConsistencyForDebug();
         if (null != mIC) {
             mIC.setSelection(start, end);
-            if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-                ResearchLogger.richInputConnection_setSelection(start, end);
-            }
         }
         mExpectedCursorPosition = start;
         mCommittedTextBeforeComposingText.setLength(0);
@@ -469,9 +447,6 @@ public final class RichInputConnection {
         mComposingText.setLength(0);
         if (null != mIC) {
             mIC.commitCompletion(completionInfo);
-            if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-                ResearchLogger.richInputConnection_commitCompletion(completionInfo);
-            }
         }
         if (DEBUG_PREVIOUS_TEXT) checkConsistencyForDebug();
     }
@@ -702,9 +677,6 @@ public final class RichInputConnection {
         deleteSurroundingText(2, 0);
         final String singleSpace = " ";
         commitText(singleSpace, 1);
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            ResearchLogger.richInputConnection_revertDoubleSpacePeriod();
-        }
         return true;
     }
 
@@ -727,9 +699,6 @@ public final class RichInputConnection {
         deleteSurroundingText(2, 0);
         final String text = " " + textBeforeCursor.subSequence(0, 1);
         commitText(text, 1);
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            ResearchLogger.richInputConnection_revertSwapPunctuation();
-        }
         return true;
     }
 

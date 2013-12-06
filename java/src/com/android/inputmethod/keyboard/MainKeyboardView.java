@@ -69,7 +69,6 @@ import com.android.inputmethod.latin.utils.SubtypeLocaleUtils;
 import com.android.inputmethod.latin.utils.TypefaceUtils;
 import com.android.inputmethod.latin.utils.UsabilityStudyLogUtils;
 import com.android.inputmethod.latin.utils.ViewLayoutUtils;
-import com.android.inputmethod.research.ResearchLogger;
 
 import java.util.WeakHashMap;
 
@@ -619,10 +618,6 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
                 ? mSpaceKey.getIcon(keyboard.mIconsSet, Constants.Color.ALPHA_OPAQUE) : null;
         final int keyHeight = keyboard.mMostCommonKeyHeight - keyboard.mVerticalGap;
         mSpacebarTextSize = keyHeight * mSpacebarTextRatio;
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            final int orientation = getContext().getResources().getConfiguration().orientation;
-            ResearchLogger.mainKeyboardView_setKeyboard(keyboard, orientation);
-        }
 
         // This always needs to be set since the accessibility state can
         // potentially change without the keyboard being set again.
@@ -883,24 +878,12 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        // Notify the ResearchLogger (development only diagnostics) that the keyboard view has
-        // been attached.  This is needed to properly show the splash screen, which requires that
-        // the window token of the KeyboardView be non-null.
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            ResearchLogger.getInstance().mainKeyboardView_onAttachedToWindow(this);
-        }
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         mPreviewPlacerView.removeAllViews();
-        // Notify the ResearchLogger (development only diagnostics) that the keyboard view has
-        // been detached.  This is needed to invalidate the reference of {@link MainKeyboardView}
-        // to null.
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            ResearchLogger.getInstance().mainKeyboardView_onDetachedFromWindow();
-        }
     }
 
     private MoreKeysPanel onCreateMoreKeysPanel(final Key key, final Context context) {
@@ -933,9 +916,6 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
         final Key key = tracker.getKey();
         if (key == null) {
             return;
-        }
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            ResearchLogger.mainKeyboardView_onLongPress();
         }
         final KeyboardActionListener listener = mKeyboardActionListener;
         if (key.hasNoPanelAutoMoreKey()) {
@@ -1061,10 +1041,6 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
     public boolean processMotionEvent(final MotionEvent me) {
         if (LatinImeLogger.sUsabilityStudy) {
             UsabilityStudyLogUtils.writeMotionEvent(me);
-        }
-        // Currently the same "move" event is being logged twice.
-        if (ProductionFlag.USES_DEVELOPMENT_ONLY_DIAGNOSTICS) {
-            ResearchLogger.mainKeyboardView_processMotionEvent(me);
         }
 
         final int index = me.getActionIndex();
