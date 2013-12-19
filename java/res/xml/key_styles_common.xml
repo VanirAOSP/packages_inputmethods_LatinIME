@@ -84,7 +84,7 @@
     <key-style
         latin:styleName="spaceKeyStyle"
         latin:code="!code/key_space"
-        latin:keyActionFlags="noKeyPreview|enableLongPress" />
+        latin:keyActionFlags="isRepeatable|noKeyPreview|enableLongPress" />
     <!-- U+200C: ZERO WIDTH NON-JOINER
          U+200D: ZERO WIDTH JOINER -->
     <key-style

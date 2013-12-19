@@ -26,10 +26,8 @@
             latin:languageSwitchKeyEnabled="true"
         >
             <Key
-                latin:keyStyle="languageSwitchKeyStyle" />
-            <Key
                 latin:keyStyle="spaceKeyStyle"
-                latin:keyWidth="20%p" />
+                latin:keyWidth="30%p" />
         </case>
         <!-- languageSwitchKeyEnabled="false" -->
         <default>

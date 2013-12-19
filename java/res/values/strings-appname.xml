@@ -23,6 +23,8 @@
          This resource should be copied from msgid="8250992613616792321" -->
     <string name="english_ime_name">VanirAOSP Keyboard</string>
 
+    <string name="default_language">Vanir</string>
+
     <!-- Name of Android spell checker service. AOSP(Android Open Source Project) should not be translated.
          This resource should be copied from msgid="511950477199948048" -->
     <string name="spell_checker_service_name">Android Spell Checker (AOSP)</string>
