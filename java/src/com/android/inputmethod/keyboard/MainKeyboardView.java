@@ -928,7 +928,7 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
             return;
         }
         final int code = key.getCode();
-        if (code == Constants.CODE_LANGUAGE_SWITCH) {
+        if (code == Constants.CODE_SPACE || code == Constants.CODE_LANGUAGE_SWITCH) {
             // Long pressing the space key invokes IME switcher dialog.
             if (listener.onCustomRequest(Constants.CUSTOM_CODE_SHOW_INPUT_METHOD_PICKER)) {
                 tracker.onLongPressed();
@@ -1109,8 +1109,8 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
                 if (animator.isStarted()) {
                     animator.cancel();
                 }
-     //           animator.start();
-     //       } else {
+                animator.start();
+            } else {
                 if (!animator.isStarted()) {
                     mLanguageOnSpacebarAnimAlpha = mLanguageOnSpacebarFinalAlpha;
                 }
@@ -1210,37 +1210,27 @@ public final class MainKeyboardView extends KeyboardView implements PointerTrack
         final int width = key.getWidth();
         final int height = key.getHeight();
 
-        // If input language are explicitly selected.
+        // If input language are explicitly selected
+        // ELSE BRANDING
+        paint.setTextAlign(Align.CENTER);
+        paint.setTypeface(Typeface.DEFAULT);
+        paint.setTextSize(mSpacebarTextSize);
+        String language;
         if (mNeedsToDisplayLanguage) {
-            paint.setTextAlign(Align.CENTER);
-            paint.setTypeface(Typeface.DEFAULT);
-            paint.setTextSize(mSpacebarTextSize);
             final InputMethodSubtype subtype = getKeyboard().mId.mSubtype;
-            final String language = layoutLanguageOnSpacebar(paint, subtype, width);
-            final float descent = paint.descent();
-            final float textHeight = -paint.ascent() + descent;
-            final float baseline = height / 2 + textHeight / 2;
-            paint.setColor(mSpacebarTextShadowColor);
-            paint.setAlpha(mLanguageOnSpacebarAnimAlpha);
-            canvas.drawText(language, width / 2, baseline - descent - 1, paint);
-            paint.setColor(mSpacebarTextColor);
-            paint.setAlpha(mLanguageOnSpacebarAnimAlpha);
-            canvas.drawText(language, width / 2, baseline - descent, paint);
+            language = layoutLanguageOnSpacebar(paint, subtype, width);
         } else {
-            paint.setTextAlign(Align.CENTER);
-            paint.setTypeface(Typeface.DEFAULT);
-            paint.setTextSize(mSpacebarTextSize);
-            final String language = getContext().getString(R.string.default_language);
-            final float descent = paint.descent();
-            final float textHeight = -paint.ascent() + descent;
-            final float baseline = height / 2 + textHeight / 2;
-            paint.setColor(mSpacebarTextShadowColor);
-            paint.setAlpha(mLanguageOnSpacebarAnimAlpha);
-            canvas.drawText(language, width / 2, baseline - descent - 1, paint);
-            paint.setColor(mSpacebarTextColor);
-            paint.setAlpha(mLanguageOnSpacebarAnimAlpha);
-            canvas.drawText(language, width / 2, baseline - descent, paint);
+            language = getContext().getString(R.string.default_language); //Vanir isn't really a language.
         }
+        final float descent = paint.descent();
+        final float textHeight = -paint.ascent() + descent;
+        final float baseline = height / 2 + textHeight / 2;
+        paint.setColor(mSpacebarTextShadowColor);
+        paint.setAlpha(mLanguageOnSpacebarAnimAlpha);
+        canvas.drawText(language, width / 2, baseline - descent - 1, paint);
+        paint.setColor(mSpacebarTextColor);
+        paint.setAlpha(mLanguageOnSpacebarAnimAlpha);
+        canvas.drawText(language, width / 2, baseline - descent, paint);
 
         // Draw the spacebar icon at the bottom
         if (mAutoCorrectionSpacebarLedOn) {
