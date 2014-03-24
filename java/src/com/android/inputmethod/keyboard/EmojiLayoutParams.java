@@ -40,10 +40,23 @@ public class EmojiLayoutParams {
     public EmojiLayoutParams(Resources res) {
         final int defaultKeyboardHeight = ResourceUtils.getDefaultKeyboardHeight(res);
         final int defaultKeyboardWidth = ResourceUtils.getDefaultKeyboardWidth(res);
-        mKeyVerticalGap = (int) res.getFraction(R.fraction.key_bottom_gap_holo,
-                (int) defaultKeyboardHeight, (int) defaultKeyboardHeight);
-        mBottomPadding = (int) res.getFraction(R.fraction.keyboard_bottom_padding_holo,
-                (int) defaultKeyboardHeight, (int) defaultKeyboardHeight);
+
+        //test for presence of legacy R.fraction.key_bottom_gap_ics - default=0%
+        if ((int)res.getFraction(R.fraction.key_bottom_gap_ics, 1, 1) == 0) {
+            mKeyVerticalGap = (int) res.getFraction(R.fraction.key_bottom_gap_holo,
+                    (int) defaultKeyboardHeight, (int) defaultKeyboardHeight);
+        } else {
+            mKeyVerticalGap = (int) res.getFraction(R.fraction.key_bottom_gap_ics,
+                    (int) defaultKeyboardHeight, (int) defaultKeyboardHeight);
+        }
+        //test for presence of legacy R.fraction.key_bottom_padding_ics - default=0%
+        if ((int)res.getFraction(R.fraction.keyboard_bottom_padding_ics, 1, 1) == 0) {
+            mBottomPadding = (int) res.getFraction(R.fraction.keyboard_bottom_padding_holo,
+                    (int) defaultKeyboardHeight, (int) defaultKeyboardHeight);
+        } else {
+            mBottomPadding = (int) res.getFraction(R.fraction.keyboard_bottom_padding_ics,
+                    (int) defaultKeyboardHeight, (int) defaultKeyboardHeight);
+        }
         mTopPadding = (int) res.getFraction(R.fraction.keyboard_top_padding_holo,
                 (int) defaultKeyboardHeight, (int) defaultKeyboardHeight);
         mKeyHorizontalGap = (int) (res.getFraction(R.fraction.key_horizontal_gap_holo,

@@ -129,4 +129,8 @@
 
     <dimen name="language_on_spacebar_horizontal_margin">1dp</dimen>
 
+    <!-- compatibility with legacy overlays -->
+    <fraction name="key_bottom_gap_ics">0%</fraction>
+    <fraction name="keyboard_bottom_padding_ics">0%</fraction>
+
 </resources>
