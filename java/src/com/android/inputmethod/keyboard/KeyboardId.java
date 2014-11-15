@@ -43,6 +43,7 @@ public final class KeyboardId {
     public static final int MODE_DATE = 6;
     public static final int MODE_TIME = 7;
     public static final int MODE_DATETIME = 8;
+    public static final int MODE_LOWER_RIGHT_CORNER_ENTER = 9;
 
     public static final int ELEMENT_ALPHABET = 0;
     public static final int ELEMENT_ALPHABET_MANUAL_SHIFTED = 1;
@@ -68,10 +69,8 @@ public final class KeyboardId {
     public final int mHeight;
     public final int mMode;
     public final int mElementId;
-    private final EditorInfo mEditorInfo;
+    public final EditorInfo mEditorInfo;
     public final boolean mClobberSettingsKey;
-    public final boolean mShortcutKeyEnabled;
-    public final boolean mShortcutKeyOnSymbols;
     public final boolean mLanguageSwitchKeyEnabled;
     public final String mCustomActionLabel;
     public final boolean mHasShortcutKey;
@@ -87,17 +86,10 @@ public final class KeyboardId {
         mElementId = elementId;
         mEditorInfo = params.mEditorInfo;
         mClobberSettingsKey = params.mNoSettingsKey;
-        mShortcutKeyEnabled = params.mVoiceKeyEnabled;
-        mShortcutKeyOnSymbols = mShortcutKeyEnabled && !params.mVoiceKeyOnMain;
         mLanguageSwitchKeyEnabled = params.mLanguageSwitchKeyEnabled;
         mCustomActionLabel = (mEditorInfo.actionLabel != null)
                 ? mEditorInfo.actionLabel.toString() : null;
-        final boolean alphabetMayHaveShortcutKey = isAlphabetKeyboard(elementId)
-                && !mShortcutKeyOnSymbols;
-        final boolean symbolsMayHaveShortcutKey = (elementId == KeyboardId.ELEMENT_SYMBOLS)
-                && mShortcutKeyOnSymbols;
-        mHasShortcutKey = mShortcutKeyEnabled
-                && (alphabetMayHaveShortcutKey || symbolsMayHaveShortcutKey);
+        mHasShortcutKey = params.mVoiceInputKeyEnabled;
 
         mHashCode = computeHashCode(this);
     }
@@ -110,8 +102,7 @@ public final class KeyboardId {
                 id.mHeight,
                 id.passwordInput(),
                 id.mClobberSettingsKey,
-                id.mShortcutKeyEnabled,
-                id.mShortcutKeyOnSymbols,
+                id.mHasShortcutKey,
                 id.mLanguageSwitchKeyEnabled,
                 id.isMultiLine(),
                 id.imeAction(),
@@ -131,8 +122,7 @@ public final class KeyboardId {
                 && other.mHeight == mHeight
                 && other.passwordInput() == passwordInput()
                 && other.mClobberSettingsKey == mClobberSettingsKey
-                && other.mShortcutKeyEnabled == mShortcutKeyEnabled
-                && other.mShortcutKeyOnSymbols == mShortcutKeyOnSymbols
+                && other.mHasShortcutKey == mHasShortcutKey
                 && other.mLanguageSwitchKeyEnabled == mLanguageSwitchKeyEnabled
                 && other.isMultiLine() == isMultiLine()
                 && other.imeAction() == imeAction()
@@ -186,21 +176,19 @@ public final class KeyboardId {
 
     @Override
     public String toString() {
-        return String.format(Locale.ROOT, "[%s %s:%s %dx%d %s %s %s%s%s%s%s%s%s%s%s]",
+        return String.format(Locale.ROOT, "[%s %s:%s %dx%d %s %s%s%s%s%s%s%s%s]",
                 elementIdToName(mElementId),
                 mLocale, mSubtype.getExtraValueOf(KEYBOARD_LAYOUT_SET),
                 mWidth, mHeight,
                 modeName(mMode),
-                imeAction(),
-                (navigateNext() ? "navigateNext" : ""),
-                (navigatePrevious() ? "navigatePrevious" : ""),
+                actionName(imeAction()),
+                (navigateNext() ? " navigateNext" : ""),
+                (navigatePrevious() ? " navigatePrevious" : ""),
                 (mClobberSettingsKey ? " clobberSettingsKey" : ""),
                 (passwordInput() ? " passwordInput" : ""),
-                (mShortcutKeyEnabled ? " shortcutKeyEnabled" : ""),
-                (mShortcutKeyOnSymbols ? " shortcutKeyOnSymbols" : ""),
                 (mHasShortcutKey ? " hasShortcutKey" : ""),
                 (mLanguageSwitchKeyEnabled ? " languageSwitchKeyEnabled" : ""),
-                (isMultiLine() ? "isMultiLine" : "")
+                (isMultiLine() ? " isMultiLine" : "")
         );
     }
 
@@ -246,6 +234,7 @@ public final class KeyboardId {
         case MODE_DATE: return "date";
         case MODE_TIME: return "time";
         case MODE_DATETIME: return "datetime";
+        case MODE_LOWER_RIGHT_CORNER_ENTER: return "lowerRightCornerIsEnterKey";
         default: return null;
         }
     }

@@ -37,8 +37,8 @@ import com.android.inputmethod.compat.TextViewCompatUtils;
 import com.android.inputmethod.compat.ViewCompatUtils;
 import com.android.inputmethod.latin.R;
 import com.android.inputmethod.latin.settings.SettingsActivity;
-import com.android.inputmethod.latin.utils.CollectionUtils;
-import com.android.inputmethod.latin.utils.StaticInnerHandlerWrapper;
+import com.android.inputmethod.latin.utils.LeakGuardHandlerWrapper;
+import com.android.inputmethod.latin.utils.UncachedInputMethodManagerUtils;
 
 import java.util.ArrayList;
 
@@ -74,27 +74,28 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
     private SettingsPoolingHandler mHandler;
 
     private static final class SettingsPoolingHandler
-            extends StaticInnerHandlerWrapper<SetupWizardActivity> {
+            extends LeakGuardHandlerWrapper<SetupWizardActivity> {
         private static final int MSG_POLLING_IME_SETTINGS = 0;
         private static final long IME_SETTINGS_POLLING_INTERVAL = 200;
 
         private final InputMethodManager mImmInHandler;
 
-        public SettingsPoolingHandler(final SetupWizardActivity outerInstance,
+        public SettingsPoolingHandler(final SetupWizardActivity ownerInstance,
                 final InputMethodManager imm) {
-            super(outerInstance);
+            super(ownerInstance);
             mImmInHandler = imm;
         }
 
         @Override
         public void handleMessage(final Message msg) {
-            final SetupWizardActivity setupWizardActivity = getOuterInstance();
+            final SetupWizardActivity setupWizardActivity = getOwnerInstance();
             if (setupWizardActivity == null) {
                 return;
             }
             switch (msg.what) {
             case MSG_POLLING_IME_SETTINGS:
-                if (SetupActivity.isThisImeEnabled(setupWizardActivity, mImmInHandler)) {
+                if (UncachedInputMethodManagerUtils.isThisImeEnabled(setupWizardActivity,
+                        mImmInHandler)) {
                     setupWizardActivity.invokeSetupWizardOfThisIme();
                     return;
                 }
@@ -278,7 +279,8 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
     }
 
     void invokeSubtypeEnablerOfThisIme() {
-        final InputMethodInfo imi = SetupActivity.getInputMethodInfoOf(getPackageName(), mImm);
+        final InputMethodInfo imi =
+                UncachedInputMethodManagerUtils.getInputMethodInfoOf(getPackageName(), mImm);
         if (imi == null) {
             return;
         }
@@ -302,10 +304,10 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
 
     private int determineSetupStepNumber() {
         mHandler.cancelPollingImeSettings();
-        if (!SetupActivity.isThisImeEnabled(this, mImm)) {
+        if (!UncachedInputMethodManagerUtils.isThisImeEnabled(this, mImm)) {
             return STEP_1;
         }
-        if (!SetupActivity.isThisImeCurrent(this, mImm)) {
+        if (!UncachedInputMethodManagerUtils.isThisImeCurrent(this, mImm)) {
             return STEP_2;
         }
         return STEP_3;
@@ -482,7 +484,7 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
 
     static final class SetupStepGroup {
         private final SetupStepIndicatorView mIndicatorView;
-        private final ArrayList<SetupStep> mGroup = CollectionUtils.newArrayList();
+        private final ArrayList<SetupStep> mGroup = new ArrayList<>();
 
         public SetupStepGroup(final SetupStepIndicatorView indicatorView) {
             mIndicatorView = indicatorView;

@@ -23,18 +23,18 @@
 >
     <switch>
         <case
-            latin:keyboardLayoutSetElement="alphabet|alphabetAutomaticShifted"
+            latin:keyboardLayoutSetElement="alphabet|alphabetAutomaticShifted|alphabetShiftLocked"
         >
             <Key
-                latin:keyLabel=","
+                latin:keySpec=","
                 latin:additionalMoreKeys="&lt;" />
             <Key
-                latin:keyLabel="."
+                latin:keySpec="."
                 latin:additionalMoreKeys="&gt;" />
             <Key
-                latin:keyLabel="/"
+                latin:keySpec="/"
                 latin:additionalMoreKeys="\?"
-                latin:moreKeys="!text/more_keys_for_symbols_question" />
+                latin:moreKeys="!text/morekeys_question" />
         </case>
         <!-- keyboardLayoutSetElement="alphabetManualShifted|alphabetShiftLocked|alphabetShiftLockShifted" -->
         <default>
@@ -45,14 +45,14 @@
                  U+00AB: "«" LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
                  U+00BB: "»" RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK -->
             <Key
-                latin:keyLabel="&lt;"
+                latin:keySpec="&lt;"
                 latin:moreKeys="!fixedColumnOrder!3,&#x2039;,&#x2264;,&#x00AB;" />
             <Key
-                latin:keyLabel="&gt;"
+                latin:keySpec="&gt;"
                 latin:moreKeys="!fixedColumnOrder!3,&#x203A;,&#x2265;,&#x00BB;" />
             <Key
-                latin:keyLabel="\?"
-                latin:moreKeys="!text/more_keys_for_symbols_question" />
+                latin:keySpec="\?"
+                latin:moreKeys="!text/morekeys_question" />
         </default>
     </switch>
 </merge>
