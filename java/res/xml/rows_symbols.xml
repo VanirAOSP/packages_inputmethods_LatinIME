@@ -29,6 +29,12 @@
         latin:keyWidth="10%p"
     >
         <include
+	    latin:keyboardLayout="@xml/rowkeys_symbols0" />
+    </Row>
+    <Row
+        latin:keyWidth="10%p"
+    >
+        <include
             latin:keyboardLayout="@xml/rowkeys_symbols1" />
     </Row>
     <Row
